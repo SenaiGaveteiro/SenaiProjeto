@@ -417,3 +417,24 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY com.android.ide.eclipse.adt 2 0 2016-09-18 18:40:52.183
 !MESSAGE No projects found for [C:\Users\Edinho\Desktop\Api\GaveteiroApi\GaveteiroApi\WebContent\WEB-INF\spring-context.xml]
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2016-09-18 18:44:56.057
+!MESSAGE No valid Android XML Editor Delegate found for file /GaveteiroApi/WebContent/WEB-INF/web.xml [Res null, type null]
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2016-09-18 18:45:11.403
+!MESSAGE No valid Android XML Editor Delegate found for file /GaveteiroApi/src/META-INF/persistence.xml [Res null, type null]
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2016-09-18 18:48:31.003
+!MESSAGE No projects found for [C:\Users\Edinho\Desktop\Api\GaveteiroApi\GaveteiroApi\src\META-INF\persistence.xml]
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2016-09-18 18:48:32.677
+!MESSAGE No projects found for [C:\Users\Edinho\Desktop\Api\GaveteiroApi\GaveteiroApi\src\META-INF\persistence.xml]
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2016-09-18 18:52:22.437
+!MESSAGE No valid Android XML Editor Delegate found for file /GaveteiroApi/WebContent/WEB-INF/web.xml [Res null, type null]
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2016-09-18 18:52:29.642
+!MESSAGE No valid Android XML Editor Delegate found for file /GaveteiroApi/WebContent/WEB-INF/spring-context.xml [Res null, type null]
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2016-09-18 18:52:56.714
+!MESSAGE No projects found for [C:\Users\Edinho\Desktop\Api\GaveteiroApi\GaveteiroApi\WebContent\WEB-INF\spring-context.xml]
