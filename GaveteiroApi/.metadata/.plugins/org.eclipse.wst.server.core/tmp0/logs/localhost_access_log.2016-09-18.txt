@@ -1,0 +1,9 @@
+127.0.0.1 - - [18/Sep/2016:16:56:28 -0300] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [18/Sep/2016:16:56:29 -0300] "GET /GaveteiroApi/WEB-INF/classes/br/gaveteiro/senai/dao/EmpresaDao.java HTTP/1.1" 404 992
+0:0:0:0:0:0:0:1 - - [18/Sep/2016:16:58:15 -0300] "GET /GaveteiroApi/ HTTP/1.1" 500 10266
+0:0:0:0:0:0:0:1 - - [18/Sep/2016:17:00:22 -0300] "GET /GaveteiroApi/ HTTP/1.1" 500 10266
+127.0.0.1 - - [18/Sep/2016:18:37:38 -0300] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [18/Sep/2016:18:37:38 -0300] "GET /GaveteiroApi/WEB-INF/classes/br/gaveteiro/senai/modelo/TipoUsuario.java HTTP/1.1" 404 992
+0:0:0:0:0:0:0:1 - - [18/Sep/2016:18:38:53 -0300] "GET /GaveteiroApi/ HTTP/1.1" 500 28555
+127.0.0.1 - - [18/Sep/2016:18:42:35 -0300] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [18/Sep/2016:18:42:35 -0300] "GET /GaveteiroApi/ HTTP/1.1" 500 28555

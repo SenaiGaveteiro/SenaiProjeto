@@ -1,15 +1,36 @@
 package br.gaveteiro.senai.modelo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="usuario")
 public class Usuario {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_usuario" )
 	private Long idUsuario;
 	private String nome;
 	private Character sexo;
 	private String login;
 	private String senha;
-	private Long idEmpresa;
-	private Long idTipoUsuario;
+	@JoinColumn(name = "idEmpresa")
+	@ManyToOne
+	private Empresa empresa;
+	@JoinColumn(name = "idTipoUsuario")
+	@ManyToOne
+	private TipoUsuario tipoUsuario;
+	@Column(length = 15)
 	private String telefone;
+	@Column(length = 15)
 	private String cpf;
+	@Column(length = 15)
 	private String rg;
 	private String email;
 	public Long getIdUsuario() {
@@ -42,17 +63,19 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	public Long getIdEmpresa() {
-		return idEmpresa;
+
+	public Empresa getEmpresa() {
+		return empresa;
 	}
-	public void setIdEmpresa(Long idEmpresa) {
-		this.idEmpresa = idEmpresa;
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
 	}
-	public Long getIdTipoUsuario() {
-		return idTipoUsuario;
+
+	public TipoUsuario getTipoUsuario() {
+		return tipoUsuario;
 	}
-	public void setIdTipoUsuario(Long idTipoUsuario) {
-		this.idTipoUsuario = idTipoUsuario;
+	public void setTipoUsuario(TipoUsuario tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
 	}
 	public String getTelefone() {
 		return telefone;
