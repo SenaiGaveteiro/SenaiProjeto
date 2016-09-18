@@ -1,0 +1,5 @@
+package br.gaveteiro.senai.modelo;
+
+public class TipoUsuario {
+
+}
