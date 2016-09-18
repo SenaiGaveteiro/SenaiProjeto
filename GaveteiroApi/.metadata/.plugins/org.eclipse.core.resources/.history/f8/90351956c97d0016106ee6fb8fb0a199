@@ -1,0 +1,15 @@
+package br.gaveteiro.senai.modelo;
+
+public class Usuario {
+	private Long idUsuario;
+	private String nome;
+	private Character sexo;
+	private String login;
+	private String senha;
+	private Long idEmpresa;
+	private Long idTipoUsuario;
+	private String telefone;
+	private String cpf;
+	private String rg;
+	private String email;
+}
