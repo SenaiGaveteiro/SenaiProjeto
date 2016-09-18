@@ -1,15 +1,11 @@
 package br.gaveteiro.senai.modelo;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="empresa")
 public class Empresa {
-	@Id
-	@GeneratedValue
 	private Long idEmpresa;
 	private String nome;
 	private String cpf;

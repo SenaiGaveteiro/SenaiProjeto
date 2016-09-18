@@ -1,15 +1,11 @@
 package br.gaveteiro.senai.modelo;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name= "forma_pagamento")
 public class FormaPagamento {
-	@Id
-	@GeneratedValue
 	private Long idFormaPagamento;
 	private String descricao;
 	public Long getIdFormaPagamento() {
