@@ -18,7 +18,7 @@ public class TipoUsuario {
 	@Column(name = "id_tipo")
 	private Long idTipo;
 	private String descricao;
-	@OneToMany
+	@OneToMany(mappedBy="tipoUsuario")
 	List<Usuario> usuarios;
 	public List<Usuario> getUsuarios() {
 		return usuarios;

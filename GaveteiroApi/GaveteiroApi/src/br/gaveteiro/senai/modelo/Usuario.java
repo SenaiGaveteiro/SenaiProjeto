@@ -20,10 +20,10 @@ public class Usuario {
 	private Character sexo;
 	private String login;
 	private String senha;
-	@JoinColumn(name = "idEmpresa")
+	@JoinColumn(name = "id_empresa")
 	@ManyToOne
 	private Empresa empresa;
-	@JoinColumn(name = "idTipoUsuario")
+	@JoinColumn(name = "id_tipo")
 	@ManyToOne
 	private TipoUsuario tipoUsuario;
 	@Column(length = 15)
