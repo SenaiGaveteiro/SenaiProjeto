@@ -2,10 +2,35 @@ package br.gaveteiro.senai.modelo;
 
 import java.util.Calendar;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+@Table (name="pedido")
 public class Pedido {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_pedido")
 	private Long idPedido;
+	@Temporal(TemporalType.DATE)
+	@Column(name="data_pedido")
 	private Calendar dataPedido;
 	private Long idUsuario;
+	@JoinColumn(name="id_status")
+	@ManyToOne
+	private Status status;
+	@JoinColumn (name="id_pagamento")
+	@OneToOne
+	private FormaPagamento pagamento;
 	public Long getIdPedido() {
 		return idPedido;
 	}
@@ -24,18 +49,6 @@ public class Pedido {
 	public void setIdUsuario(Long idUsuario) {
 		this.idUsuario = idUsuario;
 	}
-	public Long getIdStatus() {
-		return idStatus;
-	}
-	public void setIdStatus(Long idStatus) {
-		this.idStatus = idStatus;
-	}
-	public Long getIdPagamento() {
-		return idPagamento;
-	}
-	public void setIdPagamento(Long idPagamento) {
-		this.idPagamento = idPagamento;
-	}
-	private Long idStatus;
-	private Long idPagamento;
+	
+	
 }
