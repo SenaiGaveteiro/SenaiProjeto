@@ -1,10 +1,20 @@
 package br.gaveteiro.senai.modelo;
 
+import java.util.Calendar;
+
 public class MudancaStatus {
 	private Long idMudanca;
 	private Long idPedido;
 	private Long idStatus;
 	private Long idUsuario;
+	private Calendar dataAlteracao;
+	
+	public Calendar getDataAlteracao() {
+		return dataAlteracao;
+	}
+	public void setDataAlteracao(Calendar dataAlteracao) {
+		this.dataAlteracao = dataAlteracao;
+	}
 	public Long getIdMudanca() {
 		return idMudanca;
 	}
