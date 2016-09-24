@@ -1,7 +1,5 @@
 package br.gaveteiro.senai.controller;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -25,17 +23,6 @@ public class EmpresaRestController {
 	public ResponseEntity<Empresa> inserir(@RequestBody String strEmpresa)
 	{
 		 try {
-			 JSONObject job = new JSONObject(strEmpresa);
-			 Empresa empresa = new Empresa();
-			 empresa.setRazaoSocial(job.getString("RazaoSocial"));
-			 empresa.setCnpj(job.getString("cnpj"));
-			 JSONArray usuarios = job.getJSONArray("usuarios");
-			 
-			 for(int i = 0; i <= usuarios.length(); i++ )
-		  {
-				 
-			 }
-			 
 			
 		} catch (Exception e) {
 		  e.printStackTrace();
