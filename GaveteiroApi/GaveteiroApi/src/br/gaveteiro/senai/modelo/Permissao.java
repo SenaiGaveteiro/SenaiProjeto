@@ -1,10 +1,26 @@
 package br.gaveteiro.senai.modelo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "permissao")
 public class Permissao {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_permissao")
 	private Long idPermissao;
 	private String action;
 	private String controller;
-	private Long idTipo;
+	@ManyToOne
+	@JoinColumn(name = "id_tipo")
+	private TipoUsuario tipoUsuario;
 	public Long getIdPermissao() {
 		return idPermissao;
 	}
@@ -23,11 +39,11 @@ public class Permissao {
 	public void setController(String controller) {
 		this.controller = controller;
 	}
-	public Long getIdTipo() {
-		return idTipo;
+	public TipoUsuario getTipoUsuario() {
+		return tipoUsuario;
 	}
-	public void setIdTipo(Long idTipo) {
-		this.idTipo = idTipo;
+	public void setTipoUsuario(TipoUsuario tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
 	}
 
 }

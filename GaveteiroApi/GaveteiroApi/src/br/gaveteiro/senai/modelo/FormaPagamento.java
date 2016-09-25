@@ -1,7 +1,9 @@
 package br.gaveteiro.senai.modelo;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -9,7 +11,8 @@ import javax.persistence.Table;
 @Table(name= "forma_pagamento")
 public class FormaPagamento {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_pagamento")
 	private Long idFormaPagamento;
 	private String descricao;
 	public Long getIdFormaPagamento() {

@@ -1,15 +1,50 @@
 package br.gaveteiro.senai.modelo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "item_pedido")
 public class ItemPedido {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_item_pedido")
 	private Long idItemPedido;
 	private Long quantidade;
+	@Column(name = "valor_unitario")
 	private Float valorUnitario;
+	@Column(name = "valor_subtotal")
 	private Float valorSubtotal;
+	@Column(name = "valor_frete")
 	private Float valorFrete;
 	private Float total;
-	private Long idProduto;
-	private Long idPedido;
+	@OneToOne
+	@JoinColumn(name = "id_produto")
+	private Produto produto;
+	@OneToOne
+	@JoinColumn(name = "id_pedido")
+	private Pedido pedido;
+	public Produto getProduto() {
+		return produto;
+	}
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
+	public Pedido getPedido() {
+		return pedido;
+	}
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
+	}
+	@Column(name = "servico_frete")
 	private String servicoFrete;
+	
 	public Long getIdItemPedido() {
 		return idItemPedido;
 	}
@@ -46,18 +81,7 @@ public class ItemPedido {
 	public void setTotal(Float total) {
 		this.total = total;
 	}
-	public Long getIdProduto() {
-		return idProduto;
-	}
-	public void setIdProduto(Long idProduto) {
-		this.idProduto = idProduto;
-	}
-	public Long getIdPedido() {
-		return idPedido;
-	}
-	public void setIdPedido(Long idPedido) {
-		this.idPedido = idPedido;
-	}
+	
 	public String getServicoFrete() {
 		return servicoFrete;
 	}

@@ -1,7 +1,20 @@
 package br.gaveteiro.senai.modelo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "produto")
 public class Produto {
+	@Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(name = "id_produto")
 	private Long idProduto;
+	@Column(name = "preco_unitario")
 	private Double precoUnitario;
 	private String descricao;
 	private String categoria;
