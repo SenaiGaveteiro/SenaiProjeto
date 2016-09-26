@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -35,7 +34,7 @@ public class Pedido {
 	@OneToOne
 	@JoinColumn(name = "id_pagamento")
 	private FormaPagamento pagamento;
-	@OneToMany(mappedBy = "pedido", orphanRemoval = true, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "pedido")
 	private List<ItemPedido> itens;
 	public List<ItemPedido> getItens() {
 		return itens;
