@@ -5,18 +5,26 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+<<<<<<< HEAD
 import javax.persistence.FetchType;
+=======
+>>>>>>> dc5f73faba4739bdaf7ecae528529854fddc4d08
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+<<<<<<< HEAD
 import javax.persistence.OneToMany;
+=======
+import javax.persistence.ManyToOne;
+>>>>>>> dc5f73faba4739bdaf7ecae528529854fddc4d08
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
+<<<<<<< HEAD
 @Table(name = "pedido")
 public class Pedido {
 	@Id
@@ -61,6 +69,24 @@ public class Pedido {
 	public void setPagamento(FormaPagamento pagamento) {
 		this.pagamento = pagamento;
 	}
+=======
+@Table (name="pedido")
+public class Pedido {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_pedido")
+	private Long idPedido;
+	@Temporal(TemporalType.DATE)
+	@Column(name="data_pedido")
+	private Calendar dataPedido;
+	private Long idUsuario;
+	@JoinColumn(name="id_status")
+	@ManyToOne
+	private Status status;
+	@JoinColumn (name="id_pagamento")
+	@OneToOne
+	private FormaPagamento pagamento;
+>>>>>>> dc5f73faba4739bdaf7ecae528529854fddc4d08
 	public Long getIdPedido() {
 		return idPedido;
 	}
@@ -73,5 +99,16 @@ public class Pedido {
 	public void setDataPedido(Calendar dataPedido) {
 		this.dataPedido = dataPedido;
 	}
+<<<<<<< HEAD
 
+=======
+	public Long getIdUsuario() {
+		return idUsuario;
+	}
+	public void setIdUsuario(Long idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+	
+	
+>>>>>>> dc5f73faba4739bdaf7ecae528529854fddc4d08
 }

@@ -1,0 +1,11 @@
+package br.gaveteiro.senai.dao;
+
+import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class UsuarioDao {
+	@PersistenceContext
+
+}

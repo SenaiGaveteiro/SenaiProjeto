@@ -1,0 +1,18 @@
+package br.gaveteiro.senai.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.gaveteiro.senai.dao.EmpresaDao;
+
+@RestController
+public class EmpresaRestController {
+	@Autowired
+	private EmpresaDao empresaDao;
+	
+	@Transactional
+	@RequestMapping(value = "/empresa", method =RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	
+}

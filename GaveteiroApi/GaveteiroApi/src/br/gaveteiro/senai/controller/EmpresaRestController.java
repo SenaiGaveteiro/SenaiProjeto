@@ -1,8 +1,45 @@
 package br.gaveteiro.senai.controller;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import br.gaveteiro.senai.dao.EmpresaDao;
+import br.gaveteiro.senai.modelo.Empresa;
 
 @RestController
 public class EmpresaRestController {
-
+	@Autowired
+	private EmpresaDao empresaDao;
+	
+	@Transactional
+	@RequestMapping(value = "/empresa", method =RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<Empresa> inserir(@RequestBody String strEmpresa)
+	{
+		 try {
+			 JSONObject job = new JSONObject(strEmpresa);
+			 Empresa empresa = new Empresa();
+			 empresa.setRazaoSocial(job.getString("RazaoSocial"));
+			 empresa.setCnpj(job.getString("cnpj"));
+			 JSONArray usuarios = job.getJSONArray("usuarios");
+			 
+			 for(int i = 0; i <= usuarios.length(); i++ )
+		  {
+				 
+			 }
+			 
+			
+		} catch (Exception e) {
+		  e.printStackTrace();
+		  return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 }

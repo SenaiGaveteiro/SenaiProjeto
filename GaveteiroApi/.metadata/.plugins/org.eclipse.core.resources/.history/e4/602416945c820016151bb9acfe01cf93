@@ -1,0 +1,13 @@
+package br.gaveteiro.senai.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.gaveteiro.senai.dao.UsuarioDao;
+
+@RestController
+public class UsuarioRestController {
+
+	@Autowired
+	private UsuarioDao usuarioDao;
+}
