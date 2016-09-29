@@ -40,20 +40,20 @@ public class EmpresaRestController {
 			 
 			 for(int i = 0; i <= arrayUsuarios.length(); i++ )
 		    {
-				 JSONObject jsonUsuario = arrayUsuarios.getJSONObject(i);
+				 JSONObject jsonEmpresa = arrayUsuarios.getJSONObject(i);
 				 Usuario usuario = new Usuario();
 				 usuario.setEmpresa(empresa);
-				 usuario.setNome(jsonUsuario.getString("nome"));
-				 usuario.setCpf(jsonUsuario.getString("cpf"));
-				 usuario.setRg(jsonUsuario.getString("rg"));
-				 usuario.setEmail(jsonUsuario.getString("email"));
-				 usuario.setLogin(jsonUsuario.getString("login"));
-				 usuario.setSenha(jsonUsuario.getString("senha"));
-				 usuario.setTelefone(jsonUsuario.getString("telefone"));
-				 usuario.setSexo(jsonUsuario.getString("sexo").charAt(0));
+				 usuario.setNome(jsonEmpresa.getString("nome"));
+				 usuario.setCpf(jsonEmpresa.getString("cpf"));
+				 usuario.setRg(jsonEmpresa.getString("rg"));
+				 usuario.setEmail(jsonEmpresa.getString("email"));
+				 usuario.setLogin(jsonEmpresa.getString("login"));
+				 usuario.setSenha(jsonEmpresa.getString("senha"));
+				 usuario.setTelefone(jsonEmpresa.getString("telefone"));
+				 usuario.setSexo(jsonEmpresa.getString("sexo").charAt(0));
 				 
 				 TipoUsuarioDao tipoUsuarioDao = new TipoUsuarioDao();
-				 TipoUsuario tipo = tipoUsuarioDao.listar(jsonUsuario.getLong("idTipoUsuario"));
+				 TipoUsuario tipo = tipoUsuarioDao.listar(jsonEmpresa.getLong("idTipoUsuario"));
 				 usuario.setTipoUsuario(tipo);
 				 usuarios.add(usuario);			 
 			 }
