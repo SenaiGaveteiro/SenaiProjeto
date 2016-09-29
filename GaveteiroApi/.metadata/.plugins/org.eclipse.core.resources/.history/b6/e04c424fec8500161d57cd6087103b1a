@@ -25,8 +25,7 @@ public class EmpresaRestController {
 	@Autowired
 	private EmpresaDao empresaDao;
 	@Autowired
-	private TipoUsuarioDao tipoUsuarioDao;
-	
+	private TipoUsuarioDao TipoUsuarioDao;
 	@RequestMapping(value = "/empresa", method =RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Empresa> inserir(@RequestBody String strEmpresa)
 	{
@@ -51,7 +50,7 @@ public class EmpresaRestController {
 				 usuario.setTelefone(jsonUsuario.getString("telefone"));
 				 usuario.setSexo(jsonUsuario.getString("sexo").charAt(0));
 				 usuario.setEmpresa(empresa);
-				 tipoUsuarioDao = new TipoUsuarioDao();
+				 TipoUsuarioDao tipoUsuarioDao = new TipoUsuarioDao();
 				 TipoUsuario tipo = tipoUsuarioDao.listar(jsonUsuario.getLong("idTipoUsuario"));
 				 usuario.setTipoUsuario(tipo);
 				 usuarios.add(usuario);			 

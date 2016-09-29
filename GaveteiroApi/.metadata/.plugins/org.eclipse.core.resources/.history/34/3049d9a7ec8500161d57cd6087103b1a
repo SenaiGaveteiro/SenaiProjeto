@@ -30,6 +30,19 @@ public class TipoUsuarioRestController {
 			JSONObject job = new JSONObject(strTipoUsuario);
 			TipoUsuario tipo = new TipoUsuario();
 			tipo.setDescricao(job.getString("descricao"));
+			
+			/*JSONArray arrayTipos = job.getJSONArray("usuarios");
+			List<Usuario> usuarios = new ArrayList<Usuario>();
+			if(arrayTipos.length() >= 0)
+			{
+				for (int i = 0; i < arrayTipos.length(); i++) {
+					JSONObject jsonTipo =  arrayTipos.getJSONObject(i);
+					Usuario usuario = new Usuario();
+					usuario.setNome(jsonTipo.getString("nome"));
+					usuario.setCpf(cpf);
+					usuarios.add(usuario);
+				}
+			}*/
 				
 		 tipoUsuarioDao.inserir(tipo);
 		 URI location = new URI("/tipo/"+tipo.getIdTipo());
