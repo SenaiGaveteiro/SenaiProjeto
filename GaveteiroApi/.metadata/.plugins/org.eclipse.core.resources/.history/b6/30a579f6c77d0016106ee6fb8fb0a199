@@ -1,9 +1,0 @@
-package br.gaveteiro.senai.modelo;
-
-public class MudancaStatus {
-	private Long idMudanca;
-	private Long idPedido;
-	private Long idStatus;
-	private Long idUsuario;
-
-}

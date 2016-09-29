@@ -13,7 +13,7 @@ public class EmpresaDao {
 	private EntityManager manager;
 	
 	public void inserir(Empresa empresa)
- {
+    {
 		manager.persist(empresa);
 	}
 }

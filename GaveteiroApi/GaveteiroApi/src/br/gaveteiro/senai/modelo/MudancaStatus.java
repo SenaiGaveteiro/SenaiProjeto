@@ -1,53 +1,45 @@
 package br.gaveteiro.senai.modelo;
 
-<<<<<<< HEAD
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-@Entity
-@Table(name = "mudaca_status")
-=======
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.util.Calendar;
 
->>>>>>> dc5f73faba4739bdaf7ecae528529854fddc4d08
+@Entity
+@Table(name = "mudanca_status")
 public class MudancaStatus {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_mudanca")
 	private Long idMudanca;
-<<<<<<< HEAD
-	@ManyToMany
+	@ManyToOne
 	@JoinColumn(name = "id_pedido")
 	private Pedido pedido;
+	@ManyToOne
 	@JoinColumn(name = "id_status")
 	private Status status;
+	@ManyToOne
 	@JoinColumn(name = "id_usuario")
-	@OneToMany
 	private Usuario usuario;
+	@Temporal(TemporalType.DATE)
+	@Column(name = "data_alteracao")
+	private Calendar dataAlteracao;
 	public Pedido getPedido() {
 		return pedido;
-=======
-	private Long idPedido;
-	private Long idStatus;
-	private Long idUsuario;
-	private Calendar dataAlteracao;
+	}
 	
 	public Calendar getDataAlteracao() {
 		return dataAlteracao;
 	}
 	public void setDataAlteracao(Calendar dataAlteracao) {
 		this.dataAlteracao = dataAlteracao;
-	}
-	public Long getIdMudanca() {
-		return idMudanca;
->>>>>>> dc5f73faba4739bdaf7ecae528529854fddc4d08
 	}
 	public void setPedido(Pedido pedido) {
 		this.pedido = pedido;

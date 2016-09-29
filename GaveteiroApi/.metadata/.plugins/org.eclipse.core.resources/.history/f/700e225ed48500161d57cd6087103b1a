@@ -1,0 +1,31 @@
+package br.gaveteiro.senai.dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import br.gaveteiro.senai.modelo.TipoUsuario;
+
+@Repository
+public class TipoUsuarioDao {
+	
+	@PersistenceContext
+	private EntityManager manager;
+	
+	@Transactional
+	public void inserir(TipoUsuario tipo)
+	{
+		manager.persist(tipo);
+	}
+	
+	public List<TipoUsuario> listar()
+	{
+		TypedQuery<TipoUsuario> query = manager.createQuery("select t from TipoUsuario t", TipoUsuario.class);
+		return query.getResultList(); 
+	}
+}

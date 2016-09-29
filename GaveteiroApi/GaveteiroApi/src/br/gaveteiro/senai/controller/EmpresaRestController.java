@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
+import java.net.*;
 import br.gaveteiro.senai.dao.EmpresaDao;
 import br.gaveteiro.senai.modelo.Empresa;
+import br.gaveteiro.senai.modelo.Usuario;
 
 @RestController
 public class EmpresaRestController {
@@ -32,11 +33,19 @@ public class EmpresaRestController {
 			 JSONArray usuarios = job.getJSONArray("usuarios");
 			 
 			 for(int i = 0; i <= usuarios.length(); i++ )
-		  {
-				 
+		    {
+				 Usuario usuario = new Usuario();
+				 usuario.setEmpresa(empresa);
+				 usuario.setNome(usuarios.getString(i));
+				 usuario.setCpf(usuarios.getString(i));
+				 usuario.setRg(usuarios.getString(i));
+				 usuario.setEmail(usuarios.getString(i));
 			 }
 			 
-			
+			 empresaDao.inserir(empresa);
+			 
+			 URI location = new URI("/empresa/"+empresa.getIdEmpresa());
+			return ResponseEntity.created(location).body(empresa);
 		} catch (Exception e) {
 		  e.printStackTrace();
 		  return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

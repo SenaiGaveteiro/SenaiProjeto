@@ -1,9 +1,0 @@
-package br.gaveteiro.senai.modelo;
-
-public class Pedido {
-	private Long idPedido;
-	private Calendar dataPedido;
-	private Long idUsuario;
-	private Long idStatus;
-	private Long idPagamento;
-}
