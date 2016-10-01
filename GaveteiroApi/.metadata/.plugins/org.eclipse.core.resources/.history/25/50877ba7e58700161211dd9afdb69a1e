@@ -5,7 +5,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,7 +22,7 @@ public class Empresa {
 	@Column(length=30)
 	private String cnpj;
 	private String razaoSocial;
-	@OneToMany(mappedBy="empresa", cascade =CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy="empresa", cascade =CascadeType.ALL, orphanRemoval = true)
 	private List<Usuario> usuarios;
 	
 	public List<Usuario> getUsuarios() {

@@ -36,7 +36,7 @@ public class EmpresaRestController {
 			 Empresa empresa = new Empresa();
 			 empresa.setRazaoSocial(job.getString("razaoSocial"));
 			 empresa.setCnpj(job.getString("cnpj"));
-			 if(job.has("usuarios")){
+			 if(){
 				 List<Usuario> usuarios = new ArrayList<Usuario>();
 				 JSONArray arrayUsuarios = job.getJSONArray("usuarios");
 			 

@@ -23,7 +23,7 @@ public class Empresa {
 	@Column(length=30)
 	private String cnpj;
 	private String razaoSocial;
-	@OneToMany(mappedBy="empresa", cascade =CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy="empresa", cascade =CascadeType.ALL, orphanRemoval = true)
 	private List<Usuario> usuarios;
 	
 	public List<Usuario> getUsuarios() {
