@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,7 +39,7 @@ public class EmpresaRestController {
 			 List<Usuario> usuarios = new ArrayList<Usuario>();
 			 JSONArray arrayUsuarios = job.getJSONArray("usuarios");
 			 
-			 for(int i = 0; i <= arrayUsuarios.length(); i++ )
+			 for(int i = 0; i < arrayUsuarios.length(); i++ )
 		    {
 				 JSONObject jsonUsuario = arrayUsuarios.getJSONObject(i);
 				 Usuario usuario = new Usuario();
@@ -51,8 +52,8 @@ public class EmpresaRestController {
 				 usuario.setTelefone(jsonUsuario.getString("telefone"));
 				 usuario.setSexo(jsonUsuario.getString("sexo").charAt(0));
 				 usuario.setEmpresa(empresa);
-				 tipoUsuarioDao = new TipoUsuarioDao();
-				 TipoUsuario tipo = tipoUsuarioDao.listar(jsonUsuario.getLong("idTipoUsuario"));
+				 TipoUsuario tipo = new  TipoUsuario();
+				 tipo  = 	 tipoUsuarioDao.listar(jsonUsuario.getLong("idTipoUsuario"));
 				 usuario.setTipoUsuario(tipo);
 				 usuarios.add(usuario);			 
 			 }
@@ -64,6 +65,23 @@ public class EmpresaRestController {
 		} catch (Exception e) {
 		  e.printStackTrace();
 		  return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@RequestMapping(value = "/empresa", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public List<Empresa> listar()
+	{
+		return empresaDao.listar();
+	}
+	
+	@RequestMapping(value = "/empresa/{idEmpresa}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<Empresa> listar(@PathVariable Long idEmpresa)
+	{
+		try {
+			Empresa empresa = empresaDao.listar(idEmpresa);
+			return ResponseEntity.ok(empresa); 
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 }
