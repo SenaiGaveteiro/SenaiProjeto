@@ -1,7 +1,10 @@
 package br.gaveteiro.senai.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
@@ -13,8 +16,19 @@ public class UsuarioDao {
 	private EntityManager manager;
 	
 	public void inserir(Usuario usuario)
-  {
+	{
 		manager.persist(usuario);
 	}
 
+	public List<Usuario> listar(){
+		
+		 TypedQuery<Usuario> query = manager.createQuery("SELECT u FROM Usuario u", Usuario.class);
+		 return query.getResultList();
+	}
+	
+	
+	public Usuario listar(Long idUsuario){
+		 Usuario usuario = manager.find(Usuario.class, idUsuario);
+		 return usuario;
+	}
 }
