@@ -23,8 +23,8 @@ public class ProdutoRestController {
 	private ProdutoDao produtoDao;
 	
 	@RequestMapping(value = "/produto", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<Produto> inserir (@RequestBody Produto produto)
-	{	
+	public ResponseEntity<Produto> inserir (@RequestBody Produto produto){
+		
 		try {
 			produtoDao.inserir(produto);
 			URI location = new URI("/produto/"+produto.getIdProduto());
