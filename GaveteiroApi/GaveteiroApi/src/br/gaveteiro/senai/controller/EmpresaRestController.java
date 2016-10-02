@@ -36,28 +36,31 @@ public class EmpresaRestController {
 			 Empresa empresa = new Empresa();
 			 empresa.setRazaoSocial(job.getString("razaoSocial"));
 			 empresa.setCnpj(job.getString("cnpj"));
-			 List<Usuario> usuarios = new ArrayList<Usuario>();
-			 JSONArray arrayUsuarios = job.getJSONArray("usuarios");
+			 if(job.has("usuarios")){
+				 List<Usuario> usuarios = new ArrayList<Usuario>();
+				 JSONArray arrayUsuarios = job.getJSONArray("usuarios");
 			 
-			 for(int i = 0; i < arrayUsuarios.length(); i++ )
-		    {
-				 JSONObject jsonUsuario = arrayUsuarios.getJSONObject(i);
-				 Usuario usuario = new Usuario();
-				 usuario.setNome(jsonUsuario.getString("nome"));
-				 usuario.setCpf(jsonUsuario.getString("cpf"));
-				 usuario.setRg(jsonUsuario.getString("rg"));
-				 usuario.setEmail(jsonUsuario.getString("email"));
-				 usuario.setLogin(jsonUsuario.getString("login"));
-				 usuario.setSenha(jsonUsuario.getString("senha"));
-				 usuario.setTelefone(jsonUsuario.getString("telefone"));
-				 usuario.setSexo(jsonUsuario.getString("sexo").charAt(0));
-				 usuario.setEmpresa(empresa);
-				 TipoUsuario tipo = new  TipoUsuario();
-				 tipo  = 	 tipoUsuarioDao.listar(jsonUsuario.getLong("idTipoUsuario"));
-				 usuario.setTipoUsuario(tipo);
-				 usuarios.add(usuario);			 
+				 for(int i = 0; i < arrayUsuarios.length(); i++ )
+			    {
+					 JSONObject jsonUsuario = arrayUsuarios.getJSONObject(i);
+					 Usuario usuario = new Usuario();
+					 usuario.setNome(jsonUsuario.getString("nome"));
+					 usuario.setCpf(jsonUsuario.getString("cpf"));
+					 usuario.setRg(jsonUsuario.getString("rg"));
+					 usuario.setEmail(jsonUsuario.getString("email"));
+					 usuario.setLogin(jsonUsuario.getString("login"));
+					 usuario.setSenha(jsonUsuario.getString("senha"));
+					 usuario.setTelefone(jsonUsuario.getString("telefone"));
+					 usuario.setSexo(jsonUsuario.getString("sexo").charAt(0));
+					 usuario.setEmpresa(empresa);
+					 TipoUsuario tipo = new  TipoUsuario();
+					 tipo  = 	 tipoUsuarioDao.listar(jsonUsuario.getLong("idTipoUsuario"));
+					 usuario.setTipoUsuario(tipo);
+					 usuarios.add(usuario);			 
+			 	}
+			 
+			 	empresa.setUsuarios(usuarios);
 			 }
-			 empresa.setUsuarios(usuarios);
 			 empresaDao.inserir(empresa);
 			 
 			 URI location = new URI("/empresa/"+empresa.getIdEmpresa());

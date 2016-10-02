@@ -2,6 +2,7 @@ package br.gaveteiro.senai.modelo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,7 +25,7 @@ public class Usuario {
 	@ManyToOne
 	private Empresa empresa;
 	@JoinColumn(name = "id_tipo")
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	private TipoUsuario tipoUsuario;
 	@Column(length = 15)
 	private String telefone;

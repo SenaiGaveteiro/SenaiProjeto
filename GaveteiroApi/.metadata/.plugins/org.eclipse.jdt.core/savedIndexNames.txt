@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 INDEX VERSION 1.127+C:\Users\Edinho\Desktop\Api\GaveteiroApi\.metadata\.plugins\org.eclipse.jdt.core
 484470320.index
 3752326370.index
@@ -55,3 +56,62 @@ INDEX VERSION 1.127+C:\Users\Edinho\Desktop\Api\GaveteiroApi\.metadata\.plugins\
 4106489645.index
 4072868442.index
 3651476446.index
+=======
+INDEX VERSION 1.129+C:\Users\Gaveteiro\Desktop\API-Gaveteiro\GaveteiroApi\.metadata\.plugins\org.eclipse.jdt.core
+92233983.index
+338145661.index
+1497015212.index
+618723895.index
+4184201189.index
+3838838809.index
+605331665.index
+194728193.index
+2165905550.index
+108247743.index
+2903677036.index
+741572703.index
+3407430047.index
+471236001.index
+3417200662.index
+4284159543.index
+3686819415.index
+3059856035.index
+3736371722.index
+2637943071.index
+3019310590.index
+1845975346.index
+909329537.index
+1165331658.index
+2019903893.index
+1644702904.index
+808374113.index
+2102835816.index
+414978335.index
+1939301846.index
+3068943289.index
+2133282975.index
+1075794691.index
+748182972.index
+2797240585.index
+4225510794.index
+3805744494.index
+979579226.index
+2653552926.index
+2694409500.index
+3176168901.index
+4007885027.index
+2127709130.index
+34674149.index
+910487640.index
+2108509764.index
+2809250744.index
+987008526.index
+203657825.index
+4029687591.index
+2800558102.index
+1000795425.index
+985286902.index
+781808.index
+2855899100.index
+4034354950.index
+>>>>>>> dc81b14f798246fac02fd0894eb3408f96b91d33
