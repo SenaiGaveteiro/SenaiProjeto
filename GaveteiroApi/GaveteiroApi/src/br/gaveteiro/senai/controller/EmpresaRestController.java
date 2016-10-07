@@ -1,6 +1,5 @@
 package br.gaveteiro.senai.controller;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,21 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import java.net.*;
-import java.util.ArrayList;
 import java.util.List;
 
 import br.gaveteiro.senai.dao.EmpresaDao;
-import br.gaveteiro.senai.dao.TipoUsuarioDao;
 import br.gaveteiro.senai.modelo.Empresa;
-import br.gaveteiro.senai.modelo.TipoUsuario;
-import br.gaveteiro.senai.modelo.Usuario;
 
 @RestController
 public class EmpresaRestController {
 	@Autowired
 	private EmpresaDao empresaDao;
-	@Autowired
-	private TipoUsuarioDao tipoUsuarioDao;
 	
 	@RequestMapping(value = "/empresa", method =RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Empresa> inserir(@RequestBody String strEmpresa)
@@ -36,31 +29,6 @@ public class EmpresaRestController {
 			 Empresa empresa = new Empresa();
 			 empresa.setRazaoSocial(job.getString("razaoSocial"));
 			 empresa.setCnpj(job.getString("cnpj"));
-			 if(job.has("usuarios")){
-				 List<Usuario> usuarios = new ArrayList<Usuario>();
-				 JSONArray arrayUsuarios = job.getJSONArray("usuarios");
-			 
-				 for(int i = 0; i < arrayUsuarios.length(); i++ )
-			    {
-					 JSONObject jsonUsuario = arrayUsuarios.getJSONObject(i);
-					 Usuario usuario = new Usuario();
-					 usuario.setNome(jsonUsuario.getString("nome"));
-					 usuario.setCpf(jsonUsuario.getString("cpf"));
-					 usuario.setRg(jsonUsuario.getString("rg"));
-					 usuario.setEmail(jsonUsuario.getString("email"));
-					 usuario.setLogin(jsonUsuario.getString("login"));
-					 usuario.setSenha(jsonUsuario.getString("senha"));
-					 usuario.setTelefone(jsonUsuario.getString("telefone"));
-					 usuario.setSexo(jsonUsuario.getString("sexo").charAt(0));
-					 usuario.setEmpresa(empresa);
-					 TipoUsuario tipo = new  TipoUsuario();
-					 tipo  = 	 tipoUsuarioDao.listar(jsonUsuario.getLong("idTipoUsuario"));
-					 usuario.setTipoUsuario(tipo);
-					 usuarios.add(usuario);			 
-			 	}
-			 
-			 	empresa.setUsuarios(usuarios);
-			 }
 			 empresaDao.inserir(empresa);
 			 
 			 URI location = new URI("/empresa/"+empresa.getIdEmpresa());

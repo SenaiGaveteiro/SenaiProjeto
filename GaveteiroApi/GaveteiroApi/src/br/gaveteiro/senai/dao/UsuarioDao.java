@@ -7,7 +7,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
-
 import br.gaveteiro.senai.modelo.Usuario;
 
 @Repository
@@ -31,4 +30,30 @@ public class UsuarioDao {
 		 Usuario usuario = manager.find(Usuario.class, idUsuario);
 		 return usuario;
 	}
+	
+	public List<Usuario> listarPorEmpresa(Long idEmpresa)
+	{
+		TypedQuery<Usuario> query = manager.createQuery("SELECT u FROM Usuario u WHERE u.empresa.idEmpresa = :idEmpresa", Usuario.class);
+		query.setParameter("idEmpresa", idEmpresa);
+		return query.getResultList();
+		
+	}
+	
+	public Usuario logar(Usuario usuario)
+	{
+		TypedQuery<Usuario> query = manager.createQuery("select u from Usuario u where u.login = :login and u.senha = :senha", Usuario.class);
+		query.setParameter("login", usuario.getLogin());
+		query.setParameter("senha", usuario.getSenha());
+		try {
+			return query.getSingleResult();
+		} catch (NullPointerException e) {
+			return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		
+	}
+
 }

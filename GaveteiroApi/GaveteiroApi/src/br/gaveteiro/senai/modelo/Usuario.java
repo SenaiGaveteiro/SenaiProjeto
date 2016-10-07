@@ -2,13 +2,14 @@ package br.gaveteiro.senai.modelo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 
 @Entity
 @Table(name="usuario")
@@ -25,7 +26,7 @@ public class Usuario {
 	@ManyToOne
 	private Empresa empresa;
 	@JoinColumn(name = "id_tipo")
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	private TipoUsuario tipoUsuario;
 	@Column(length = 15)
 	private String telefone;
@@ -62,6 +63,8 @@ public class Usuario {
 		return senha;
 	}
 	public void setSenha(String senha) {
+		Md5PasswordEncoder encoder = new Md5PasswordEncoder();
+		senha = encoder.encodePassword(senha, null);
 		this.senha = senha;
 	}
 

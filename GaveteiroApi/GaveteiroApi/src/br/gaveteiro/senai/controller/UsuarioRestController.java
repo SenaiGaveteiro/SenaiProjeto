@@ -1,6 +1,7 @@
 package br.gaveteiro.senai.controller;
 
 import java.net.URI;
+import java.util.HashMap;
 import java.util.List;
 
 import org.json.JSONObject;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.auth0.jwt.JWTSigner;
+
 import br.gaveteiro.senai.dao.EmpresaDao;
 import br.gaveteiro.senai.dao.TipoUsuarioDao;
 import br.gaveteiro.senai.dao.UsuarioDao;
@@ -24,7 +27,9 @@ import br.gaveteiro.senai.modelo.Usuario;
 
 @RestController
 public class UsuarioRestController {
-
+	public static final String SECRET = "gaveteirosenai";
+	public static final String ISSUER = "http//www.gaveteiro.com.br";
+	
 	@Autowired
 	private UsuarioDao usuarioDao;
 	@Autowired
@@ -79,5 +84,40 @@ public class UsuarioRestController {
 		}
 	}
 	
+	@RequestMapping(value = "/empresa/{idEmpresa}/usuario", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public List<Usuario> listarPorEmpresa(@PathVariable Long idEmpresa){
+		System.out.println(idEmpresa);
+		return usuarioDao.listarPorEmpresa(idEmpresa);
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<String> logar(@RequestBody Usuario usuario)
+	{
+		try {
+			usuario = usuarioDao.logar(usuario);
+			if(usuario != null){
+				//Data de emissão do token (issued at)
+				long iat = System.currentTimeMillis()/100;
+				//data de expiração do token
+				long exp = iat + 3600;
+				//Objeto que irá gerar o token
+				JWTSigner signer = new JWTSigner(SECRET);
+				HashMap<String, Object> claims = new HashMap<>();
+				claims.put("iat", iat);
+				claims.put("exp", exp);
+				claims.put("iss", ISSUER);
+				claims.put("id_usuario", usuario.getIdUsuario());
+				//gerar o token
+				String jwt = signer.sign(claims);
+				JSONObject token = new JSONObject();
+				token.put("token", jwt);
+				return ResponseEntity.ok(token.toString());
+			}else{
+				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			}
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 	
 }

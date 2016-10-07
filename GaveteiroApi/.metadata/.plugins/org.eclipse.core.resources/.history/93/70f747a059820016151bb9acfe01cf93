@@ -1,5 +1,0 @@
-package br.gaveteiro.senai.dao;
-
-public class UsuarioDao {
-
-}
