@@ -1,0 +1,21 @@
+package br.gaveteiro.senai.dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Repository;
+
+import br.gaveteiro.senai.modelo.ItemPedido;
+
+@Repository
+public class ItemPedidoDao {
+	@PersistenceContext
+	private EntityManager manager;
+	
+	public List<ItemPedido> listarPorPedido()
+	{
+		
+	}
+}

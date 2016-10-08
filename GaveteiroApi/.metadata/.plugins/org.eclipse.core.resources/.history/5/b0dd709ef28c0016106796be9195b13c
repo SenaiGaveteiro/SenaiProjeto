@@ -1,7 +1,5 @@
 package br.gaveteiro.senai.modelo;
 
-import java.util.Calendar;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,13 +27,6 @@ public class ItemPedido {
 	private Float valorSubtotal;
 	@Column(name = "valor_frete")
 	private Float valorFrete;
-	private Calendar ultimaAtualizacao;
-	public Calendar getUltimaAtualizacao() {
-		return ultimaAtualizacao;
-	}
-	public void setUltimaAtualizacao(Calendar ultimaAtualizacao) {
-		this.ultimaAtualizacao = ultimaAtualizacao;
-	}
 	private Float total;
 	@OneToOne
 	@JoinColumn(name = "id_produto")
