@@ -1,0 +1,29 @@
+package br.gaveteiro.senai.controller;
+
+import java.net.URI;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.gaveteiro.senai.dao.FormaPagamentoDao;
+import br.gaveteiro.senai.modelo.FormaPagamento;
+
+@RestController
+public class FormaPagamentoRestController {
+	
+	@Autowired
+	FormaPagamentoDao formaPagamentoDao;
+	
+	public ResponseEntity<FormaPagamento> inserir(@RequestBody FormaPagamento pagamento){
+			try {
+				formaPagamentoDao.inserir(pagamento);
+				URI location = new URI("pagamento/"+pagamento.getIdFormaPagamento());
+			} catch (Exception e) {
+				 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+	}
+	
+}

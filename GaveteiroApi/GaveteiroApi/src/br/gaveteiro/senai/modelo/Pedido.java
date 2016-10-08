@@ -37,8 +37,6 @@ public class Pedido {
 	private FormaPagamento pagamento;
 	@OneToMany(mappedBy = "pedido", orphanRemoval = true, fetch = FetchType.EAGER)
 	private List<ItemPedido> itens;
-	@OneToMany(mappedBy = "pedido", orphanRemoval = true)
-	private List<MudancaStatus> mudancaStatus;
 	public Long getIdPedido() {
 		return idPedido;
 	}
@@ -51,12 +49,7 @@ public class Pedido {
 	public void setDataPedido(Calendar dataPedido) {
 		this.dataPedido = dataPedido;
 	}
-	public List<MudancaStatus> getMudancaStatus() {
-		return mudancaStatus;
-	}
-	public void setMudancaStatus(List<MudancaStatus> mudancaStatus) {
-		this.mudancaStatus = mudancaStatus;
-	}
+	
 	public List<ItemPedido> getItens() {
 		return itens;
 	}
