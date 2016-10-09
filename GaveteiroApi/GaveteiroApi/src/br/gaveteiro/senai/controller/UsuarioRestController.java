@@ -120,4 +120,17 @@ public class UsuarioRestController {
 		}
 	}
 	
+	@RequestMapping(value = "senha/recuperar", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE )
+	public ResponseEntity<Boolean> recuperarSenha(@RequestBody Usuario usuario)
+	{
+		try {
+			if(usuarioDao.recuperarSenha(usuario))
+				return ResponseEntity.ok(true);
+			else
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
 }

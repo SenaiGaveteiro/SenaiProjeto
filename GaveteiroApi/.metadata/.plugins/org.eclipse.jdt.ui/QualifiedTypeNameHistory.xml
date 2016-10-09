@@ -24,7 +24,6 @@
 <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
 <fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
 <fullyQualifiedTypeName name="br.gaveteiro.senai.modelo.MudancaStatus"/>
-<fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnoreProperties"/>
 <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
 <fullyQualifiedTypeName name="org.springframework.http.HttpHeaders"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
@@ -54,4 +53,5 @@
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="com.auth0.jwt.JWTSigner"/>
 <fullyQualifiedTypeName name="org.springframework.security.authentication.encoding.Md5PasswordEncoder"/>
+<fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnoreProperties"/>
 </qualifiedTypeNameHistroy>

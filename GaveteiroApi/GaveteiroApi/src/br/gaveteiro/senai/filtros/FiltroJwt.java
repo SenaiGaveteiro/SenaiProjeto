@@ -36,7 +36,7 @@ public class FiltroJwt implements Filter{
 			throws IOException, ServletException {
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) resp;
-		if(request.getRequestURI().contains("login"))
+		if(request.getRequestURI().contains("login") || request.getRequestURI().contains("senha/recuperar"))
 		{
 			chain.doFilter(req, resp);
 			return;

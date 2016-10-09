@@ -11,10 +11,7 @@ import javax.persistence.Table;
 
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 @Entity
-@JsonIgnoreProperties("senha")
 @Table(name="usuario")
 public class Usuario {
 	@Id
@@ -62,7 +59,7 @@ public class Usuario {
 	public void setLogin(String login) {
 		this.login = login;
 	}
-	public String getSenha() {
+		public String getSenha() {
 		return senha;
 	}
 	public void setSenha(String senha) {

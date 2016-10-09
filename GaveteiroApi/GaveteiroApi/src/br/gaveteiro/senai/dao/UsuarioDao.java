@@ -1,16 +1,24 @@
 package br.gaveteiro.senai.dao;
 
 import java.util.List;
+import java.util.Random;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import br.gaveteiro.senai.modelo.Usuario;
 
 @Repository
 public class UsuarioDao {
+	@Autowired
+	private JavaMailSender mailSender;
 	@PersistenceContext
 	private EntityManager manager;
 	
@@ -53,7 +61,34 @@ public class UsuarioDao {
 			return null;
 		}
 		
-		
+	}
+	
+	@Transactional
+	public Boolean recuperarSenha(Usuario usuario)
+	{
+		try {
+			TypedQuery<Usuario> query = manager.createQuery("select u From Usuario u where u.email = :email", Usuario.class);
+			query.setParameter("email", usuario.getEmail());
+			usuario = query.getSingleResult();
+			Random random = new Random();
+			char[] chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890".toCharArray();
+			String senha = "";
+			for(int i = 0; i <= 5;i++)
+				senha += chars[random.nextInt(chars.length)];
+			usuario.setSenha(senha);
+			manager.merge(usuario);
+				
+			SimpleMailMessage email = new SimpleMailMessage();
+			email.setTo(usuario.getEmail());
+			email.setSubject("Gaveteiro - Solicitação de Alteração de Senha");
+			email.setText("Olá "+usuario.getNome()+"\n sua nova senha é: "+senha);
+			mailSender.send(email);
+			System.out.println(senha);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 }
