@@ -1,13 +1,10 @@
 package br.gaveteiro.senai.modelo;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,14 +16,6 @@ public class Status {
 	private Long idStatus;
 	private String Descricao;
 	
-	@OneToMany(mappedBy = "status")
-	private List<MudancaStatus> mudancaStatus;
-	public List<MudancaStatus> getMudancaStatus() {
-		return mudancaStatus;
-	}
-	public void setMudancaStatus(List<MudancaStatus> mudancaStatus) {
-		this.mudancaStatus = mudancaStatus;
-	}
 	public Long getIdStatus() {
 		return idStatus;
 	}

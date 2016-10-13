@@ -33,5 +33,11 @@ public class EmpresaDao {
 		return manager.find(Empresa.class, idEmpresa);
 	}
 	
+	@Transactional
+	public void excluir(Long idEmpresa)
+	{
+		Empresa empresa = manager.find(Empresa.class, idEmpresa);
+		manager.remove(empresa);
+	}
 	
 }

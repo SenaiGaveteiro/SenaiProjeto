@@ -34,3 +34,4 @@
 127.0.0.1 - - [09/Oct/2016:13:23:19 -0300] "GET / HTTP/1.1" 404 994
 0:0:0:0:0:0:0:1 - - [09/Oct/2016:13:23:31 -0300] "POST /GaveteiroApi/senha/recuperar HTTP/1.1" 404 -
 0:0:0:0:0:0:0:1 - - [09/Oct/2016:13:26:58 -0300] "POST /GaveteiroApi/senha/recuperar HTTP/1.1" 200 14
+0:0:0:0:0:0:0:1 - - [09/Oct/2016:14:08:09 -0300] "POST /GaveteiroApi/login HTTP/1.1" 200 209

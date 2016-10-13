@@ -1,0 +1,20 @@
+package br.gaveteiro.senai.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.gaveteiro.senai.dao.ItemPedidoDao;
+
+@RestController
+public class ItemPedidoRestController {
+	@Autowired
+	ItemPedidoDao itemPedidoDao;
+	
+	@RequestMapping(value = "pedido/items")
+	public List<ItemPedido> listar()
+	{
+		
+	}
+	
+}

@@ -127,7 +127,7 @@ public class UsuarioRestController {
 			if(usuarioDao.recuperarSenha(usuario))
 				return ResponseEntity.ok(true);
 			else
-				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}

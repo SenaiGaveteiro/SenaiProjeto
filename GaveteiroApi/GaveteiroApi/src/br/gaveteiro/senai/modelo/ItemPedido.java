@@ -1,9 +1,8 @@
 package br.gaveteiro.senai.modelo;
 
-import java.util.Calendar;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.auth0.jwt.internal.com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties("pedido")
 @Entity
@@ -29,18 +28,12 @@ public class ItemPedido {
 	private Float valorSubtotal;
 	@Column(name = "valor_frete")
 	private Float valorFrete;
-	private Calendar ultimaAtualizacao;
-	public Calendar getUltimaAtualizacao() {
-		return ultimaAtualizacao;
-	}
-	public void setUltimaAtualizacao(Calendar ultimaAtualizacao) {
-		this.ultimaAtualizacao = ultimaAtualizacao;
-	}
+
 	private Float total;
-	@OneToOne
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_produto")
 	private Produto produto;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_pedido")
 	private Pedido pedido;
 	public Produto getProduto() {
