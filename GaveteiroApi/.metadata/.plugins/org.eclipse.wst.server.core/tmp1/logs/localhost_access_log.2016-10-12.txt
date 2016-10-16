@@ -94,3 +94,5 @@
 0:0:0:0:0:0:0:1 - - [12/Oct/2016:21:47:44 -0300] "GET /GaveteiroApi/usuario/4 HTTP/1.1" 200 -
 0:0:0:0:0:0:0:1 - - [12/Oct/2016:21:47:49 -0300] "POST /GaveteiroApi/login HTTP/1.1" 401 -
 0:0:0:0:0:0:0:1 - - [12/Oct/2016:21:47:57 -0300] "GET /GaveteiroApi/usuario HTTP/1.1" 200 589
+0:0:0:0:0:0:0:1 - - [12/Oct/2016:21:51:31 -0300] "GET /GaveteiroApi/pedido/3 HTTP/1.1" 200 664
+0:0:0:0:0:0:0:1 - - [12/Oct/2016:22:29:10 -0300] "GET /GaveteiroApi/pedido/3 HTTP/1.1" 200 664

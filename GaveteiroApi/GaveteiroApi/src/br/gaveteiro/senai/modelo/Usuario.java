@@ -11,11 +11,11 @@ import javax.persistence.Table;
 
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+//import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Entity
-@JsonIgnoreProperties(value = "senha")
+//@JsonIgnoreProperties(value = "senha")
 @Table(name="usuario")
 public class Usuario {
 	@Id

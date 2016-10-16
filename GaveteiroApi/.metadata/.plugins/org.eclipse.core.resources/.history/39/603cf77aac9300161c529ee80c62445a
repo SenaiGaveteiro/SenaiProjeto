@@ -1,0 +1,27 @@
+package br.gaveteiro.senai.dao;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import br.gaveteiro.senai.modelo.Status;
+
+@Repository
+public class StatusDao {
+	@PersistenceContext
+	private EntityManager manager;
+	
+	@Transactional
+	public void inserir(Status status)
+	{
+		manager.persist(status);
+	}
+	
+	public Status listar(Long idStatus)
+	{
+		manager.find(Status.class, idStatus)
+	}
+	
+}
