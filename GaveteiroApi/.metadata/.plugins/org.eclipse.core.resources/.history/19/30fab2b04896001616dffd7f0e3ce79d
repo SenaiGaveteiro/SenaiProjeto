@@ -1,0 +1,24 @@
+package br.gaveteiro.senai.dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+
+import org.springframework.stereotype.Repository;
+
+import br.gaveteiro.senai.modelo.Permissao;
+
+@Repository
+public class PermissaoDao {
+	@PersistenceContext
+	private EntityManager manager;
+	
+	public List<Permissao> listar()
+	{
+		TypedQuery query = manager.createQuery("select p from Permissao p", Permissao.class);
+		return query.getResultList();
+	}
+	
+}

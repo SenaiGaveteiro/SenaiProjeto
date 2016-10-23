@@ -1,0 +1,7 @@
+package br.gaveteiro.senai.interceptor;
+
+import org.apache.tomcat.jdbc.pool.PoolProperties.InterceptorDefinition;
+
+public class JTWInterceptor extends JWT{
+
+}

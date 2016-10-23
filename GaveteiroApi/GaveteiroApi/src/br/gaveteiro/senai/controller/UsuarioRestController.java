@@ -110,6 +110,10 @@ public class UsuarioRestController {
 				//gerar o token
 				String jwt = signer.sign(claims);
 				JSONObject token = new JSONObject();
+				JSONObject jsonUsuario = new JSONObject(usuario);
+				jsonUsuario.remove("senha");
+				jsonUsuario.getJSONObject("tipoUsuario").remove("usuarios");
+				token.put("usuario", jsonUsuario);
 				token.put("token", jwt);
 				return ResponseEntity.ok(token.toString());
 			}else{

@@ -1,0 +1,81 @@
+package br.gaveteiro.senai.filtros;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.http.HttpStatus;
+
+import com.auth0.jwt.JWTVerifier;
+
+import br.gaveteiro.senai.controller.UsuarioRestController;
+import br.gaveteiro.senai.dao.PermissaoDao;
+import br.gaveteiro.senai.dao.UsuarioDao;
+import br.gaveteiro.senai.modelo.Permissao;
+import br.gaveteiro.senai.modelo.Usuario;
+
+
+@WebFilter("/*")
+public class FiltroJwt implements Filter{
+	@Override
+	public void destroy() {}
+	 
+	@Override
+	public void init(FilterConfig arg0) throws ServletException {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
+			throws IOException, ServletException {
+		HttpServletRequest request = (HttpServletRequest) req;
+		HttpServletResponse response = (HttpServletResponse) resp;
+		if(request.getRequestURI().contains("login") || request.getRequestURI().contains("senha/recuperar"))
+		{
+			chain.doFilter(req, resp);
+			return;
+		}
+		String token = request.getHeader("Authorization");
+		try {
+			JWTVerifier verifier = new JWTVerifier(UsuarioRestController.SECRET);
+			Map<String, Object> claims = verifier.verify(token);
+			System.out.println(claims);
+			if(request.getRequestURI().contains("pedido/status"))
+			{
+				Long idUsuario = (Long) claims.get("id_usuario");
+				UsuarioDao usuarioDao = new UsuarioDao();
+				Usuario usuario = usuarioDao.listar(idUsuario);
+				PermissaoDao permissaoDao = new PermissaoDao();
+				List<Permissao> permissoes = permissaoDao.listarPorTipo(usuario.getTipoUsuario().getIdTipo());
+				for (Permissao permissao : permissoes) {
+					if(permissao.getController().equals("pedido") && permissao.getAction().equals("status"))
+						chain.doFilter(req, resp);
+						break;
+				}
+				
+				response.sendError(HttpStatus.UNAUTHORIZED);
+			}else {
+				chain.doFilter(req, resp);
+			}
+		} catch (Exception e) {
+			if(token == null)
+			{
+				response.sendError(HttpStatus.UNAUTHORIZED.value());
+			}else{
+				response.sendError(HttpStatus.FORBIDDEN.value());
+			}
+		}
+		
+	}
+}

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.gaveteiro.senai.dao.PedidoDao;
+import br.gaveteiro.senai.dao.StatusDao;
 import br.gaveteiro.senai.modelo.Pedido;
 import br.gaveteiro.senai.modelo.Status;
 
@@ -41,10 +42,12 @@ public class PedidoRestController {
 	}
 	
 	
-	@RequestMapping(value = "/pedido/{idPedido}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<Void> alterarStatus(@PathVariable Long idPedido, @RequestBody Status status)
+	@RequestMapping(value = "/pedido/status/{idPedido}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<Void> alterarStatus(@PathVariable Long idPedido, @RequestBody Long idStatus)
 	{
 		try {
+			StatusDao statusDao = new StatusDao();
+			Status status = statusDao.listar(idStatus);
 			if(status != null)
 			{
 				pedidoDao.alterarStatus(idPedido, status);
