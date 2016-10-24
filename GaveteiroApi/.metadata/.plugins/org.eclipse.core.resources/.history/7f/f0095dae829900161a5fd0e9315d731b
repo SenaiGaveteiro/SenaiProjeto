@@ -16,12 +16,12 @@ import br.gaveteiro.senai.controller.UsuarioRestController;
 import br.gaveteiro.senai.dao.PermissaoDao;
 import br.gaveteiro.senai.dao.UsuarioDao;
 
+
 public class JWTInterceptor extends HandlerInterceptorAdapter {
 	@Autowired
 	private UsuarioDao usuarioDao;
 	@Autowired
 	private PermissaoDao permissaoDao;
-
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
@@ -41,12 +41,12 @@ public class JWTInterceptor extends HandlerInterceptorAdapter {
 				String controller = method.getBean().getClass().getTypeName();
 				String action = method.getMethod().getName();
 				Long idUsuario = Long.parseLong(claims.get("id_usuario").toString());
-				if (permissaoDao.validar(controller, action, usuarioDao.listar(idUsuario).getTipoUsuario()))
-					return true;
+				if(permissaoDao.validar(controller, action, usuarioDao.listar(idUsuario).getTipoUsuario()))
+						return true;
 				else
 					response.sendError(HttpStatus.UNAUTHORIZED.value());
-				return false;
-
+				    return false;
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 				if (token != null)

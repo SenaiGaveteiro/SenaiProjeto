@@ -1,5 +1,6 @@
 package br.gaveteiro.senai.interceptor;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,13 +16,12 @@ import com.auth0.jwt.JWTVerifier;
 import br.gaveteiro.senai.controller.UsuarioRestController;
 import br.gaveteiro.senai.dao.PermissaoDao;
 import br.gaveteiro.senai.dao.UsuarioDao;
+import br.gaveteiro.senai.modelo.Usuario;
+
 
 public class JWTInterceptor extends HandlerInterceptorAdapter {
 	@Autowired
 	private UsuarioDao usuarioDao;
-	@Autowired
-	private PermissaoDao permissaoDao;
-
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
@@ -38,15 +38,25 @@ public class JWTInterceptor extends HandlerInterceptorAdapter {
 				JWTVerifier verifier = new JWTVerifier(UsuarioRestController.SECRET);
 				Map<String, Object> claims = verifier.verify(token);
 				System.out.println(claims);
-				String controller = method.getBean().getClass().getTypeName();
+				String controller = method.getBean().getClass().getSimpleName();
 				String action = method.getMethod().getName();
 				Long idUsuario = Long.parseLong(claims.get("id_usuario").toString());
-				if (permissaoDao.validar(controller, action, usuarioDao.listar(idUsuario).getTipoUsuario()))
-					return true;
+				System.out.println(idUsuario);
+				usuarioDao = new UsuarioDao();
+				List<Usuario> usuarios = usuarioDao.listar();
+				
+				for (Usuario usuario : usuarios) {
+					System.out.println(usuario.getNome()+"\n");
+				}
+				
+				System.out.println(usuarioDao.listar(idUsuario));
+				PermissaoDao permissaoDao = new PermissaoDao();
+				if(permissaoDao.validar(controller, action, usuarioDao.listar(idUsuario).getTipoUsuario()))
+						return true;
 				else
 					response.sendError(HttpStatus.UNAUTHORIZED.value());
-				return false;
-
+				    return false;
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 				if (token != null)
@@ -56,6 +66,8 @@ public class JWTInterceptor extends HandlerInterceptorAdapter {
 				return false;
 			}
 		}
+		//return super.preHandle(request, response, handler);
+
 	}
 
 }
