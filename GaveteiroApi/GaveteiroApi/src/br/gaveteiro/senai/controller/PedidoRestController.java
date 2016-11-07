@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.gaveteiro.senai.dao.PedidoDao;
@@ -23,7 +24,7 @@ import br.gaveteiro.senai.modelo.Status;
 public class PedidoRestController {
 	@Autowired
 	private PedidoDao pedidoDao;
-	
+
 	@RequestMapping(value = "/pedido/{idPedido}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Pedido> listar(@PathVariable Long idPedido) {
 		try {
@@ -33,15 +34,27 @@ public class PedidoRestController {
 			e.printStackTrace();
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		
+
 	}
-	
+
 	@RequestMapping(value = "/pedido", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public List<Pedido> listar(){
+	public List<Pedido> listar() {
 		return pedidoDao.listar();
 	}
-	
-	
+
+	@RequestMapping(value = "empresa/{idEmpresa}/pedido", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<List<Pedido>> listarPorEmpresa(@PathVariable Long idEmpresa, @RequestParam(name="ultimo", defaultValue = "false") String ultimo) {
+		System.out.println(ultimo);
+		if(ultimo.equals("false"))
+			return ResponseEntity.ok(pedidoDao.listarPorEmpresa(idEmpresa));
+		else {
+			if(pedidoDao.listarUltimo(idEmpresa) != null)
+				return ResponseEntity.ok(pedidoDao.listarUltimo(idEmpresa));
+			else
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+
 	@RequestMapping(value = "/pedido/status/{idPedido}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Void> alterarStatus(@PathVariable Long idPedido, @RequestBody Long idStatus)
 	{
@@ -59,11 +72,13 @@ public class PedidoRestController {
 			else{
 				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 			}
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		
+
 	}
+
+	
 }

@@ -27,11 +27,25 @@ public class PedidoDao {
 		return query.getResultList();
 	}
 	
+	public List<Pedido> listarPorEmpresa(Long idEmpresa)
+	{
+		TypedQuery<Pedido> query = manager.createQuery("select p From Pedido p where p.empresa.idEmpresa = :idEmpresa", Pedido.class);
+		query.setParameter("idEmpresa", idEmpresa);
+		return query.getResultList();
+	}
+	
 	@Transactional
 	public void alterarStatus(Long idPedido, Status status)
 	{
 		Pedido pedido = manager.find(Pedido.class, idPedido);
 		pedido.setStatus(status);
 		manager.merge(pedido);
+	}
+	
+	public List<Pedido> listarUltimo(Long idEmpresa)
+	{
+		TypedQuery<Pedido> query = manager.createQuery("select p From Pedido p where p.empresa.idEmpresa = :idEmpresa order by p.idPedido desc", Pedido.class);
+		query.setMaxResults(1);
+			return query.getResultList();
 	}
 }

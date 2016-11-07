@@ -1,0 +1,7 @@
+127.0.0.1 - - [24/Oct/2016:21:59:29 -0200] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [24/Oct/2016:21:59:34 -0200] "POST /GaveteiroApi/login HTTP/1.1" 200 534
+0:0:0:0:0:0:0:1 - - [24/Oct/2016:22:29:48 -0200] "POST /GaveteiroApi/senha/recuperar HTTP/1.1" 500 -
+0:0:0:0:0:0:0:1 - - [24/Oct/2016:22:30:10 -0200] "POST /GaveteiroApi/senha/recuperar HTTP/1.1" 500 -
+127.0.0.1 - - [24/Oct/2016:22:48:23 -0200] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [24/Oct/2016:22:49:34 -0200] "GET /GaveteiroApi/empresa/1/pedido HTTP/1.1" 401 994
+0:0:0:0:0:0:0:1 - - [24/Oct/2016:22:49:52 -0200] "GET /GaveteiroApi/empresa/1/pedido HTTP/1.1" 200 664

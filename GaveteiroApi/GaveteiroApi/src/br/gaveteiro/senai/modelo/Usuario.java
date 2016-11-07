@@ -9,7 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.validator.constraints.br.CNPJ;
+import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 
 @Entity
@@ -31,7 +31,7 @@ public class Usuario {
 	private TipoUsuario tipoUsuario;
 	@Column(length = 15)
 	private String telefone;
-	@CNPJ
+	@CPF
 	@Column(length = 15, unique = true)
 	private String cpf;
 	@Column(length = 15)

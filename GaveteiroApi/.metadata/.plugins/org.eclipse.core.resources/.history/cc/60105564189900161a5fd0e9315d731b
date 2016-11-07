@@ -1,5 +1,0 @@
-package br.gaveteiro.senai.interceptor;
-
-public class JWTInterceptor {
-
-}
