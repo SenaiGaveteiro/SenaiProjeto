@@ -50,7 +50,7 @@ public class UsuarioDao {
 	public Usuario logar(Usuario usuario)
 	{
 		TypedQuery<Usuario> query = manager.createQuery("select u from Usuario u where u.email = :email and u.senha = :senha", Usuario.class);
-		query.setParameter("email", usuario.getEmail());
+		query.setParameter("login", usuario.getLogin());
 		query.setParameter("senha", usuario.getSenha());
 		try {
 			return query.getSingleResult();
