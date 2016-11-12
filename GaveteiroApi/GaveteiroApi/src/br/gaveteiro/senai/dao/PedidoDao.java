@@ -27,6 +27,13 @@ public class PedidoDao {
 		return query.getResultList();
 	}
 	
+	public List<Pedido> listarPorEmpresa(Long idEmpresa)
+	{
+		TypedQuery<Pedido> query = manager.createQuery("select p From Pedido p where p.empresa.idEmpresa = :idEmpresa", Pedido.class);
+		query.setParameter("idEmpresa", idEmpresa);
+		return query.getResultList();
+	}
+	
 	@Transactional
 	public void alterarStatus(Long idPedido, Status status)
 	{

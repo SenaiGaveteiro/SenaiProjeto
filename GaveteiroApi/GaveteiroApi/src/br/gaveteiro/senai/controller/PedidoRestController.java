@@ -41,6 +41,13 @@ public class PedidoRestController {
 		return pedidoDao.listar();
 	}
 	
+	@RequestMapping(value = "empresa/{idEmpresa}/pedido", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public List<Pedido> listarPorEmpresa(@PathVariable Long idEmpresa)
+	{
+		return pedidoDao.listarPorEmpresa(idEmpresa);
+		
+	}
+	
 	
 	@RequestMapping(value = "/pedido/status/{idPedido}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Void> alterarStatus(@PathVariable Long idPedido, @RequestBody Long idStatus)
