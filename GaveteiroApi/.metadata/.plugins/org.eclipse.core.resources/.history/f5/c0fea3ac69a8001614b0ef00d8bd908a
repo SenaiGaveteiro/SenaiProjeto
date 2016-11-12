@@ -16,7 +16,7 @@
 	<!--  <mvc:default-servlet-handler />-->
 	<mvc:annotation-driven />
 	<mvc:interceptors>
-    <bean class="br.gaveteiro.senai.interceptor.JwtInterceptor" />
+    <bean class="br.gaveteiro.senai.interceptor.JWTInterceptor" />
 	</mvc:interceptors>
 	<bean id="mysqlDataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />

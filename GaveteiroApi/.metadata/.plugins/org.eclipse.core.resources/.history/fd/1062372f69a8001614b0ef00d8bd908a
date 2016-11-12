@@ -16,7 +16,7 @@ import br.gaveteiro.senai.controller.UsuarioRestController;
 import br.gaveteiro.senai.dao.PermissaoDao;
 import br.gaveteiro.senai.dao.UsuarioDao;
 
-public class JwtInterceptor extends HandlerInterceptorAdapter {
+public class JWTInterceptor extends HandlerInterceptorAdapter {
 	@Autowired
 	private UsuarioDao usuarioDao;
 	@Autowired

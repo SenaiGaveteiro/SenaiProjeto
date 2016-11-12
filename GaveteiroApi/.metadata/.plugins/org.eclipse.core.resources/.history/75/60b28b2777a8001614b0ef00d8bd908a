@@ -49,8 +49,8 @@ public class PedidoRestController {
 			return ResponseEntity.ok(pedidoDao.listarPorEmpresa(idEmpresa));
 		else {
 			System.out.println("passei aqui");
-			if(pedidoDao.listarUltimo(idEmpresa) != null)
-				return ResponseEntity.ok(pedidoDao.listarUltimo(idEmpresa));
+			if(pedidoDao.listarPorEmpresa(idEmpresa) != null)
+				return ResponseEntity.ok(pedidoDao.listarPorEmpresa(idEmpresa));
 			else
 				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}

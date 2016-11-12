@@ -4040,3 +4040,12 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jst.server.core 4 0 2016-11-11 21:47:02.194
+!MESSAGE Could not launch in profiling mode because no profilers are configured.
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2016-11-11 21:50:43.413
+!MESSAGE No valid Android XML Editor Delegate found for file /GaveteiroApi/WebContent/WEB-INF/spring-context.xml [Res null, type null]
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2016-11-11 21:50:50.547
+!MESSAGE No projects found for [C:\Users\Edinho\Desktop\API - SENAI\GaveteiroApi\GaveteiroApi\WebContent\WEB-INF\spring-context.xml]

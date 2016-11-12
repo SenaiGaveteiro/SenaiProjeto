@@ -43,12 +43,12 @@ public class PedidoRestController {
 	}
 
 	@RequestMapping(value = "empresa/{idEmpresa}/pedido", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<List<Pedido>> listarPorEmpresa(@PathVariable Long idEmpresa, @RequestParam(name="ultimo", defaultValue = "false") String ultimo) {
+	public ResponseEntity<List<Pedido>> listarPorEmpresa(@PathVariable Long idEmpresa, @RequestParam("ultimo") String ultimo) {
 		System.out.println(ultimo);
 		if(ultimo.equals("false"))
 			return ResponseEntity.ok(pedidoDao.listarPorEmpresa(idEmpresa));
 		else {
-			System.out.println("passei aqui");
+			System.out.println("passei por aqui");
 			if(pedidoDao.listarUltimo(idEmpresa) != null)
 				return ResponseEntity.ok(pedidoDao.listarUltimo(idEmpresa));
 			else
