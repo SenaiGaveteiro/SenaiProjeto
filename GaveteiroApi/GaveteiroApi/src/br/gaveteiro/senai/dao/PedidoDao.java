@@ -41,4 +41,12 @@ public class PedidoDao {
 		pedido.setStatus(status);
 		manager.merge(pedido);
 	}
+	
+	public List<Pedido> listarUltimo(Long idEmpresa)
+	{
+		TypedQuery<Pedido> query = manager.createQuery("select p From Pedido p where p.empresa.idEmpresa = :idEmpresa order by p.idPedido desc", Pedido.class);
+		query.setParameter("idEmpresa", idEmpresa);
+		query.setMaxResults(1);
+		return query.getResultList();
+	}
 }

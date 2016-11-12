@@ -21,7 +21,6 @@ public class Usuario {
 	private Long idUsuario;
 	private String nome;
 	private Character sexo;
-	private String login;
 	private String senha;
 	@JoinColumn(name = "id_empresa")
 	@ManyToOne
@@ -36,6 +35,7 @@ public class Usuario {
 	private String cpf;
 	@Column(length = 15)
 	private String rg;
+	@Column(unique = true)
 	private String email;
 	public Long getIdUsuario() {
 		return idUsuario;
@@ -54,12 +54,6 @@ public class Usuario {
 	}
 	public void setSexo(Character sexo) {
 		this.sexo = sexo;
-	}
-	public String getLogin() {
-		return login;
-	}
-	public void setLogin(String login) {
-		this.login = login;
 	}
 	public String getSenha() {
 		return senha;

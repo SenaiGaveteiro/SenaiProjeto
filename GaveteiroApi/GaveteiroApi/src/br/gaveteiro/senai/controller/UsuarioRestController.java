@@ -49,7 +49,6 @@ public class UsuarioRestController {
 			usuario.setEmail(job.getString("email"));
 			usuario.setCpf(job.getString("cpf"));
 			usuario.setRg(job.getString("rg"));
-			usuario.setLogin(job.getString("login"));
 			usuario.setSenha(job.getString("senha"));
 			usuario.setSexo(job.getString("sexo").charAt(0));
 			usuario.setTelefone(job.getString("telefone"));
