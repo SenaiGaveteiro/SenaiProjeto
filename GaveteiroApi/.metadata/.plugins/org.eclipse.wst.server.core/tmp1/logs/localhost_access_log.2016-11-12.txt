@@ -268,3 +268,9 @@
 192.168.3.50 - - [12/Nov/2016:17:51:03 -0200] "GET /GaveteiroApi/empresa/1/pedido HTTP/1.1" 200 1298
 192.168.3.50 - - [12/Nov/2016:17:51:04 -0200] "GET /GaveteiroApi/pedido/3 HTTP/1.1" 200 766
 192.168.3.50 - - [12/Nov/2016:17:51:27 -0200] "GET /GaveteiroApi/pedido/3 HTTP/1.1" 200 766
+192.168.2.113 - - [12/Nov/2016:17:55:23 -0200] "POST /GaveteiroApi/login HTTP/1.1" 200 513
+192.168.2.113 - - [12/Nov/2016:17:55:23 -0200] "GET /GaveteiroApi/empresa/1/pedido?ultimo=true HTTP/1.1" 200 543
+192.168.2.113 - - [12/Nov/2016:17:55:25 -0200] "GET /GaveteiroApi/pedido/4 HTTP/1.1" 200 541
+192.168.2.113 - - [12/Nov/2016:17:55:30 -0200] "GET /GaveteiroApi/empresa/1/pedido HTTP/1.1" 200 1298
+192.168.2.113 - - [12/Nov/2016:17:55:30 -0200] "GET /GaveteiroApi/pedido/4 HTTP/1.1" 200 541
+192.168.2.113 - - [12/Nov/2016:17:55:33 -0200] "GET /GaveteiroApi/pedido/3 HTTP/1.1" 200 766

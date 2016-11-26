@@ -35,6 +35,9 @@ public class Pedido {
 	private Float subtotal;
 	private Float total;
 	private Float frete;
+	@Column(name = "ultima_atualizacao")
+	@Temporal(TemporalType.DATE)
+	private Calendar ultimaAtualizacao;
 	@OneToOne
 	@JoinColumn(name = "id_empresa")
 	private Empresa empresa;
@@ -132,6 +135,14 @@ public class Pedido {
 
 	public void setFrete(Float frete) {
 		this.frete = frete;
+	}
+	
+	public Calendar getUltimaAtualizacao() {
+		return ultimaAtualizacao;
+	}
+
+	public void setUltimaAtualizacao(Calendar ultimaAtualizacao) {
+		this.ultimaAtualizacao = ultimaAtualizacao;
 	}
 
 }

@@ -28,7 +28,6 @@ public class ItemPedido {
 	private Float valorSubtotal;
 	@Column(name = "valor_frete")
 	private Float valorFrete;
-
 	private Float total;
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_produto")
