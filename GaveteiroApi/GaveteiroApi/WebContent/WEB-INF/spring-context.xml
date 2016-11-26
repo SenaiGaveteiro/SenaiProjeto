@@ -15,7 +15,9 @@
 	<context:component-scan base-package="br.gaveteiro.senai" />
 	<!--  <mvc:default-servlet-handler />-->
 	<mvc:annotation-driven />
-
+	<mvc:interceptors>
+    <bean class="br.gaveteiro.senai.interceptor.JwtInterceptor" />
+	</mvc:interceptors>
 	<bean id="mysqlDataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://127.0.0.1:3306/gaveteiro" />

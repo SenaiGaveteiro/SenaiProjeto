@@ -9,13 +9,18 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 
+<<<<<<< HEAD
 //import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Entity
 //@JsonIgnoreProperties(value = "senha")
+=======
+@Entity
+>>>>>>> b22119e2951ae6dd060218bc6826fba742260bbc
 @Table(name="usuario")
 public class Usuario {
 	@Id
@@ -24,7 +29,6 @@ public class Usuario {
 	private Long idUsuario;
 	private String nome;
 	private Character sexo;
-	private String login;
 	private String senha;
 	@JoinColumn(name = "id_empresa")
 	@ManyToOne
@@ -34,10 +38,12 @@ public class Usuario {
 	private TipoUsuario tipoUsuario;
 	@Column(length = 15)
 	private String telefone;
-	@Column(length = 15)
+	@CPF
+	@Column(length = 15, unique = true)
 	private String cpf;
 	@Column(length = 15)
 	private String rg;
+	@Column(unique = true)
 	private String email;
 	public Long getIdUsuario() {
 		return idUsuario;
@@ -57,13 +63,7 @@ public class Usuario {
 	public void setSexo(Character sexo) {
 		this.sexo = sexo;
 	}
-	public String getLogin() {
-		return login;
-	}
-	public void setLogin(String login) {
-		this.login = login;
-	}
-		public String getSenha() {
+	public String getSenha() {
 		return senha;
 	}
 	public void setSenha(String senha) {

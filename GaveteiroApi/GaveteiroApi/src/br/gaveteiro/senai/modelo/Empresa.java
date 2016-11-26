@@ -7,13 +7,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.br.CNPJ;
+
 @Entity
 @Table(name="empresa")
 public class Empresa {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idEmpresa;
-	@Column(length=30)
+	@CNPJ
+	@Column(length=30, unique = true)
 	private String cnpj;
 	private String razaoSocial;
 	public String getCnpj() {

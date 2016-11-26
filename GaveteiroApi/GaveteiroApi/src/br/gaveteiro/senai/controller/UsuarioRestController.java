@@ -49,7 +49,6 @@ public class UsuarioRestController {
 			usuario.setEmail(job.getString("email"));
 			usuario.setCpf(job.getString("cpf"));
 			usuario.setRg(job.getString("rg"));
-			usuario.setLogin(job.getString("login"));
 			usuario.setSenha(job.getString("senha"));
 			usuario.setSexo(job.getString("sexo").charAt(0));
 			usuario.setTelefone(job.getString("telefone"));
@@ -110,6 +109,10 @@ public class UsuarioRestController {
 				//gerar o token
 				String jwt = signer.sign(claims);
 				JSONObject token = new JSONObject();
+				JSONObject jsonUsuario = new JSONObject(usuario);
+				jsonUsuario.remove("senha");
+				jsonUsuario.getJSONObject("tipoUsuario").remove("usuarios");
+				token.put("usuario", jsonUsuario);
 				token.put("token", jwt);
 				return ResponseEntity.ok(token.toString());
 			}else{
@@ -129,6 +132,7 @@ public class UsuarioRestController {
 			else
 				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		} catch (Exception e) {
+			e.printStackTrace();
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}

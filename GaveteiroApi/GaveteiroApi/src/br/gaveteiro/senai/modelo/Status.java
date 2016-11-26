@@ -14,18 +14,18 @@ public class Status {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_status")
 	private Long idStatus;
-	private String Descricao;
+	private String descricao;
 	
 	public Long getIdStatus() {
-		return idStatus;
+		return this.idStatus;
 	}
 	public void setIdStatus(Long idStatus) {
 		this.idStatus = idStatus;
 	}
 	public String getDescricao() {
-		return Descricao;
+		return this.descricao;
 	}
 	public void setDescricao(String descricao) {
-		Descricao = descricao;
+		this.descricao = descricao;
 	}
 }

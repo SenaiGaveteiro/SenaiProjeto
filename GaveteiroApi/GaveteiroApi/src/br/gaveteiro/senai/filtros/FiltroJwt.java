@@ -19,25 +19,24 @@ import com.auth0.jwt.JWTVerifier;
 
 import br.gaveteiro.senai.controller.UsuarioRestController;
 
-
 @WebFilter("/*")
-public class FiltroJwt implements Filter{
+public class FiltroJwt implements Filter {
 	@Override
-	public void destroy() {}
-	 
+	public void destroy() {
+	}
+
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
 			throws IOException, ServletException {
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) resp;
-		if(request.getRequestURI().contains("login") || request.getRequestURI().contains("senha/recuperar"))
-		{
+		if (request.getRequestURI().contains("login") || request.getRequestURI().contains("senha/recuperar")) {
 			chain.doFilter(req, resp);
 			return;
 		}
@@ -46,15 +45,16 @@ public class FiltroJwt implements Filter{
 			JWTVerifier verifier = new JWTVerifier(UsuarioRestController.SECRET);
 			Map<String, Object> claims = verifier.verify(token);
 			System.out.println(claims);
+
 			chain.doFilter(req, resp);
+
 		} catch (Exception e) {
-			if(token == null)
-			{
+			if (token == null) {
 				response.sendError(HttpStatus.UNAUTHORIZED.value());
-			}else{
+			} else {
 				response.sendError(HttpStatus.FORBIDDEN.value());
 			}
 		}
-		
+
 	}
 }

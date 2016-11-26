@@ -1,0 +1,21 @@
+package br.gaveteiro.senai.interceptor;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.web.method.HandlerMethod;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
+public class JwtInterceptor extends HandlerInterceptorAdapter {
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
+		HandlerMethod method = (HandlerMethod) handler;
+		method.getBean().getClass().getSimpleName();
+		method.getMethod().getName();
+		
+		System.out.println("Controller: "+method.getBean().getClass().getSimpleName()+ "\nAction: "+method.getMethod().getName());
+		
+		return super.preHandle(request, response, handler);
+	}
+}
