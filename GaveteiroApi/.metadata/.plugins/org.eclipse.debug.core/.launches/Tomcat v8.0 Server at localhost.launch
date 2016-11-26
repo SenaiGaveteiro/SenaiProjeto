@@ -8,6 +8,10 @@
 <booleanAttribute key="org.eclipse.jdt.launching.DEFAULT_CLASSPATH" value="false"/>
 <stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_101"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="start"/>
+<<<<<<< HEAD
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dcatalina.base=&quot;C:\Users\Gaveteiro\Desktop\API-Gaveteiro\GaveteiroApi\.metadata\.plugins\org.eclipse.wst.server.core\tmp1&quot; -Dcatalina.home=&quot;C:\Users\Gaveteiro\Desktop\Arquivos Web\apache-tomcat-8.0.36&quot; -Dwtp.deploy=&quot;C:\Users\Gaveteiro\Desktop\API-Gaveteiro\GaveteiroApi\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps&quot; -Djava.endorsed.dirs=&quot;C:\Users\Gaveteiro\Desktop\Arquivos Web\apache-tomcat-8.0.36\endorsed&quot;"/>
+=======
 <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dcatalina.base=&quot;C:\Users\Gaveteiro\Desktop\API - SENAI\GaveteiroApi\.metadata\.plugins\org.eclipse.wst.server.core\tmp1&quot; -Dcatalina.home=&quot;C:\Users\Gaveteiro\Desktop\Arquivos Web\apache-tomcat-8.0.36&quot; -Dwtp.deploy=&quot;C:\Users\Gaveteiro\Desktop\API - SENAI\GaveteiroApi\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps&quot; -Djava.endorsed.dirs=&quot;C:\Users\Gaveteiro\Desktop\Arquivos Web\apache-tomcat-8.0.36\endorsed&quot;"/>
+>>>>>>> b22119e2951ae6dd060218bc6826fba742260bbc
 <stringAttribute key="server-id" value="Tomcat v8.0 Server at localhost"/>
 </launchConfiguration>

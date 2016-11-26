@@ -1,3 +1,12 @@
 #Tomcat publish data
+<<<<<<< HEAD
 #Sat Nov 26 17:46:17 BRST 2016
+=======
+<<<<<<< HEAD
+#Sat Oct 15 10:20:34 BRT 2016
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\Gaveteiro\\Desktop\\API-Gaveteiro\\GaveteiroApi\\GaveteiroApi\\WebContent\\WEB-INF\\lib\\spring-web-4.3.2.RELEASE.jar=WEB-INF/lib/spring-web-4.3.2.RELEASE.jar
+=======
+#Sat Nov 12 16:51:56 BRST 2016
+>>>>>>> 549a114cdfb38a74332d0d45338d82d4e72fe0a3
 org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\Gaveteiro\\Desktop\\API\ -\ SENAI\\GaveteiroApi\\GaveteiroApi\\WebContent\\WEB-INF\\lib\\spring-web-4.3.2.RELEASE.jar=WEB-INF/lib/spring-web-4.3.2.RELEASE.jar
+>>>>>>> b22119e2951ae6dd060218bc6826fba742260bbc

@@ -2298,6 +2298,9 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+<<<<<<< HEAD
+!SESSION 2016-10-15 09:29:05.258 -----------------------------------------------
+=======
 !SESSION 2016-10-16 11:19:05.234 -----------------------------------------------
 eclipse.buildId=4.5.2.M20160212-1500
 java.version=1.8.0_92
@@ -3662,6 +3665,7 @@ java.lang.ClassNotFoundException: org.eclipse.ui.internal.ide.addons.SaveAllDirt
 !MESSAGE No repository found at http://dl.google.com/android/adt/adt-bundle-windows-x86_64-20140702.zip.
 <<<<<<< HEAD
 !SESSION 2016-10-29 09:24:17.046 -----------------------------------------------
+>>>>>>> b22119e2951ae6dd060218bc6826fba742260bbc
 eclipse.buildId=4.6.0.I20160606-1100
 java.version=1.8.0_101
 java.vendor=Oracle Corporation
@@ -3669,6 +3673,12 @@ BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_BR
 Framework arguments:  -product org.eclipse.epp.package.jee.product
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
 
+<<<<<<< HEAD
+!ENTRY org.eclipse.core.resources 2 10035 2016-10-15 10:13:31.448
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-10-15 10:13:56.932
+=======
 !ENTRY org.eclipse.core.runtime 4 0 2016-10-29 09:24:35.198
 !MESSAGE Invalid input url:platform:/plugin/com.android.ide.eclipse.adt/icons/android_file.png
 !STACK 0
@@ -4534,12 +4544,17 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1519)
 
 !ENTRY org.eclipse.egit.ui 2 0 2016-11-12 09:32:22.589
+>>>>>>> b22119e2951ae6dd060218bc6826fba742260bbc
 !MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
 user global configuration and to define the default location to store repositories: 'C:\Users\Gaveteiro'. If this is
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
 
+<<<<<<< HEAD
+!ENTRY org.eclipse.wst.server.discovery 1 0 2016-10-15 10:19:34.319
+!MESSAGE already installed: org.eclipse.jst.server.generic.jonas4
+=======
 !ENTRY org.eclipse.wst.server.discovery 1 0 2016-11-12 09:33:55.145
 !MESSAGE already installed: org.eclipse.jst.server.generic.jonas4
 
@@ -4757,6 +4772,7 @@ org.xml.sax.SAXParseException; lineNumber: 3; columnNumber: 2; O conteúdo dos e
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:673)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:610)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1519)
+<<<<<<< HEAD
 
 !ENTRY org.eclipse.equinox.ds 2 0 2016-11-12 17:59:16.161
 !MESSAGE Getting a lock required more than 10000 ms. There might be a synchronization problem in this callstack or just the build/dispose process of some components took too long! 
@@ -4932,3 +4948,6 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.jface.text 2 0 2016-11-26 15:55:59.282
 !MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+=======
+>>>>>>> b22119e2951ae6dd060218bc6826fba742260bbc
+>>>>>>> 549a114cdfb38a74332d0d45338d82d4e72fe0a3

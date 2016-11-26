@@ -1,0 +1,14 @@
+127.0.0.1 - - [15/Oct/2016:10:21:05 -0300] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [15/Oct/2016:10:26:56 -0300] "POST /GaveteiroApi/senha/recuperar HTTP/1.1" 400 -
+0:0:0:0:0:0:0:1 - - [15/Oct/2016:10:28:11 -0300] "POST /GaveteiroApi/senha/recuperar HTTP/1.1" 200 14
+0:0:0:0:0:0:0:1 - - [15/Oct/2016:10:31:27 -0300] "POST /GaveteiroApi/login HTTP/1.1" 200 209
+0:0:0:0:0:0:0:1 - - [15/Oct/2016:10:31:56 -0300] "GET /GaveteiroApi/pedido/3 HTTP/1.1" 403 1004
+0:0:0:0:0:0:0:1 - - [15/Oct/2016:10:32:06 -0300] "GET /GaveteiroApi/pedido/1 HTTP/1.1" 403 1004
+0:0:0:0:0:0:0:1 - - [15/Oct/2016:10:36:46 -0300] "GET /GaveteiroApi/pedido/1/itens HTTP/1.1" 403 1004
+0:0:0:0:0:0:0:1 - - [15/Oct/2016:10:36:53 -0300] "GET /GaveteiroApi/pedido/ HTTP/1.1" 403 1004
+0:0:0:0:0:0:0:1 - - [15/Oct/2016:10:37:03 -0300] "GET /GaveteiroApi/pedido/ HTTP/1.1" 403 1004
+0:0:0:0:0:0:0:1 - - [15/Oct/2016:10:37:10 -0300] "POST /GaveteiroApi/login HTTP/1.1" 200 209
+0:0:0:0:0:0:0:1 - - [15/Oct/2016:10:37:28 -0300] "GET /GaveteiroApi/pedido/1/itens HTTP/1.1" 200 12
+0:0:0:0:0:0:0:1 - - [15/Oct/2016:10:37:32 -0300] "GET /GaveteiroApi/pedido/3/itens HTTP/1.1" 200 508
+0:0:0:0:0:0:0:1 - - [15/Oct/2016:10:37:40 -0300] "GET /GaveteiroApi/pedido/3 HTTP/1.1" 200 664
+0:0:0:0:0:0:0:1 - - [15/Oct/2016:13:30:22 -0300] "POST /GaveteiroApi/login HTTP/1.1" 200 209

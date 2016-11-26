@@ -12,7 +12,15 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 
+<<<<<<< HEAD
+//import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+
 @Entity
+//@JsonIgnoreProperties(value = "senha")
+=======
+@Entity
+>>>>>>> b22119e2951ae6dd060218bc6826fba742260bbc
 @Table(name="usuario")
 public class Usuario {
 	@Id
