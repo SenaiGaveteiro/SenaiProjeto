@@ -1,5 +1,6 @@
 package br.gaveteiro.senai.dao;
 
+import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -11,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.gaveteiro.senai.modelo.Pedido;
 import br.gaveteiro.senai.modelo.Status;
-import br.gaveteiro.senai.modelo.Usuario;
 
 @Repository
 public class PedidoDao {
@@ -36,16 +36,16 @@ public class PedidoDao {
 	}
 	
 	@Transactional
-	public void alterarStatus(Long idPedido, Status status, Long idUsuario)
+	public Pedido alterarStatus(Long idPedido, Status status)
 	{
+		Calendar ultimaAtualizacao = Calendar.getInstance();
+		ultimaAtualizacao.getTime();
 		Pedido pedido = manager.find(Pedido.class, idPedido);
 		pedido.setStatus(status);
+		pedido.setUltimaAtualizacao(ultimaAtualizacao);
 		manager.merge(pedido);
-		
-		UsuarioDao usuarioDao = new UsuarioDao();
-		Usuario usuario  = usuarioDao.listar(idUsuario);
-		MudancaStatusDao mudancaStatusDao = new MudancaStatusDao();
-		mudancaStatusDao.atualizacaoStatus(pedido, status, usuario);
+
+		return pedido;
 	}
 	
 	public List<Pedido> listarUltimo(Long idEmpresa)

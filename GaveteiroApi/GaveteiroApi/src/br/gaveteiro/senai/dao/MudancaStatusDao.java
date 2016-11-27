@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.gaveteiro.senai.modelo.MudancaStatus;
 import br.gaveteiro.senai.modelo.Pedido;
-import br.gaveteiro.senai.modelo.Status;
 import br.gaveteiro.senai.modelo.Usuario;
 
 @Repository
@@ -20,15 +19,17 @@ public class MudancaStatusDao {
 	private EntityManager manager;
 	
 	@Transactional
-	public void atualizacaoStatus(Pedido pedido, Status status, Usuario usuario)
+	public void atualizarStatus(Pedido pedido, Usuario usuario)
 	{
 		Calendar dataAlteracao = Calendar.getInstance();
+		dataAlteracao.getTime();
+				
 		MudancaStatus mudancaStatus = new MudancaStatus();
 		mudancaStatus.setPedido(pedido);
-		mudancaStatus.setStatus(status);
+		mudancaStatus.setStatus(pedido.getStatus());
 		mudancaStatus.setUsuario(usuario);
 		mudancaStatus.setDataAlteracao(dataAlteracao);
 		manager.persist(mudancaStatus);
-		
 	}
+	
 }

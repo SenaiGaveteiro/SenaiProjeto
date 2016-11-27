@@ -3,7 +3,6 @@ package br.gaveteiro.senai.controller;
 import java.net.URI;
 import java.util.List;
 
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -17,16 +16,26 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.gaveteiro.senai.dao.MudancaStatusDao;
 import br.gaveteiro.senai.dao.PedidoDao;
 import br.gaveteiro.senai.dao.StatusDao;
+import br.gaveteiro.senai.dao.UsuarioDao;
 import br.gaveteiro.senai.modelo.Pedido;
 import br.gaveteiro.senai.modelo.Status;
+import br.gaveteiro.senai.modelo.Usuario;
 @CrossOrigin
 @RestController
 public class PedidoRestController {
 	@Autowired
 	private PedidoDao pedidoDao;
-
+	@Autowired
+	private MudancaStatusDao mudancaStatusDao;
+	@Autowired
+	private StatusDao statusDao;
+	@Autowired
+	private UsuarioDao usuarioDao;
+	
+	
 	@RequestMapping(value = "/pedido/{idPedido}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Pedido> listar(@PathVariable Long idPedido) {
 		try {
@@ -59,25 +68,24 @@ public class PedidoRestController {
 	}
 	
 	
-	@RequestMapping(value = "/pedido/status/{idPedido}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<Void> alterarStatus(@PathVariable Long idPedido, @RequestBody String json)
+
+	@RequestMapping(value = "/pedido/{idPedido}/status/{idStatus}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<Void> alterarStatus(@PathVariable Long idPedido,  @PathVariable Long idStatus,@RequestBody Usuario u)
 	{
 		try {
-			
-			JSONObject job = new JSONObject(json);
-			Long idUsuario = job.getLong("idUsuario");
-			Long idStatus = job.getLong("idStatus");
-			StatusDao statusDao = new StatusDao();
+					
+			System.out.println("id usuario "+u.getIdUsuario()+"\nid status "+idStatus);
 			Status status = statusDao.listar(idStatus);
 			if(status != null)
 			{
-				pedidoDao.alterarStatus(idPedido, status, idUsuario);
+				Pedido pedido = pedidoDao.alterarStatus(idPedido, status);
+				u = usuarioDao.listar(u.getIdUsuario());
+				mudancaStatusDao.atualizarStatus(pedido, u);
 				HttpHeaders responseHeaders = new HttpHeaders();
 				URI location = new URI("/pedido/"+idPedido);
 				responseHeaders.setLocation(location);
 				return new ResponseEntity<>(responseHeaders, HttpStatus.OK);
-			}
-			else{
+			} else {
 				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 			}
 

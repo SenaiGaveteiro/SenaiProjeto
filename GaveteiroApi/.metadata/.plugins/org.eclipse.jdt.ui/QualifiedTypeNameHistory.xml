@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
+<<<<<<< HEAD
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.CrossOrigin"/>
+=======
+<fullyQualifiedTypeName name="javax.persistence.Column"/>
+>>>>>>> d3e32566f273001e0ad26badab1023783104f874
 <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
 <fullyQualifiedTypeName name="javax.persistence.PersistenceContext"/>
 <fullyQualifiedTypeName name="javax.persistence.EntityManager"/>
 <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
+<<<<<<< HEAD
 <fullyQualifiedTypeName name="br.gaveteiro.senai.modelo.Status"/>
 <fullyQualifiedTypeName name="br.gaveteiro.senai.modelo.MudancaStatus"/>
 <fullyQualifiedTypeName name="java.util.Calendar"/>
@@ -13,4 +18,19 @@
 <fullyQualifiedTypeName name="org.json.JSONObject"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="br.gaveteiro.senai.dao.MudancaStatusDao"/>
+=======
+<fullyQualifiedTypeName name="br.gaveteiro.senai.modelo.MudancaStatus"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="org.springframework.http.HttpRequest"/>
+<fullyQualifiedTypeName name="javax.servlet.ServletRequest"/>
+<fullyQualifiedTypeName name="javax.servlet.ServletResponse"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+<fullyQualifiedTypeName name="org.springframework.web.method.HandlerMethod"/>
+<fullyQualifiedTypeName name="br.gaveteiro.senai.dao.MudancaStatusDao"/>
+<fullyQualifiedTypeName name="br.gaveteiro.senai.dao.UsuarioDao"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+<fullyQualifiedTypeName name="org.json.JSONObject"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.CrossOrigin"/>
+>>>>>>> d3e32566f273001e0ad26badab1023783104f874
 </qualifiedTypeNameHistroy>

@@ -12,6 +12,7 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 
+
 @Entity
 @Table(name="usuario")
 public class Usuario {
