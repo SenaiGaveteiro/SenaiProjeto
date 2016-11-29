@@ -29,40 +29,49 @@ public class JwtInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
+		System.out.println(handler.getClass().getSimpleName());
 		// TODO Auto-generated method stub
-		//HandlerMethod method = (HandlerMethod) handler;
-
-		//System.out.println("Método: " + method.getMethod().getName() + "\nController: "
-		//+ method.getBean().getClass().getSimpleName());
-		if (request.getRequestURI().contains("login") || request.getRequestURI().contains("senha/recuperar"))
+		HandlerMethod method;
+		if(handler instanceof HandlerMethod)
 		{
-			return true;
-		} else {
-			String token = request.getHeader("Authorization");
-			try {
-				JWTVerifier verifier = new JWTVerifier(UsuarioRestController.SECRET);
-				Map<String, Object> claims = verifier.verify(token);
-				System.out.println(claims);
-		//	    String controller = method.getBean().getClass().getTypeName();
-		//	    String action = method.getMethod().getName();
-			    Long idUsuario = Long.parseLong(claims.get("id_usuario").toString());
-			    request.setAttribute("id", idUsuario);	
-		//		if (permissaoDao.validar(controller, action, usuarioDao.listar(idUsuario).getTipoUsuario()))
-					return true;
-			//	else
-			//		response.sendError(HttpStatus.UNAUTHORIZED.value());
-			//	return false;
-				//return true;
-			} catch (Exception e) {
-				e.printStackTrace();
-				if (token != null)
-					response.sendError(HttpStatus.UNAUTHORIZED.value());
-				else
-					response.sendError(HttpStatus.INTERNAL_SERVER_ERROR.value());
-				return false;
+			method = (HandlerMethod) handler;	
+
+			System.out.println("Método: " + method.getMethod().getName() + "\nController: "
+								      + method.getBean().getClass().getSimpleName());
+			if (request.getRequestURI().contains("login") || request.getRequestURI().contains("senha/recuperar"))
+			{
+				return true;
+			} else {
+				String token = request.getHeader("Authorization");
+				try {
+					JWTVerifier verifier = new JWTVerifier(UsuarioRestController.SECRET);
+					Map<String, Object> claims = verifier.verify(token);
+					System.out.println(claims);
+					String controller = method.getBean().getClass().getTypeName();
+					String action = method.getMethod().getName();
+				    Long idUsuario = Long.parseLong(claims.get("id_usuario").toString());
+				    request.setAttribute("id", idUsuario);	
+					if (permissaoDao.validar(controller, action, usuarioDao.listar(idUsuario).getTipoUsuario()))
+						return true;
+					else
+						response.sendError(HttpStatus.UNAUTHORIZED.value());
+						return false;
+						//return true;
+				} catch (Exception e) {
+					e.printStackTrace();
+					if (token != null)
+						response.sendError(HttpStatus.UNAUTHORIZED.value());
+					else
+						response.sendError(HttpStatus.INTERNAL_SERVER_ERROR.value());
+					return false;
+				}
 			}
 		}
+		
+		return true;
+		
 	}
+	
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
