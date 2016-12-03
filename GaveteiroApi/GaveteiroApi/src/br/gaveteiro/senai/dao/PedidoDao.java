@@ -35,6 +35,28 @@ public class PedidoDao {
 		return query.getResultList();
 	}
 	
+	public List<Pedido> listarPorRazaoSocial(String razaoSocial)
+	{
+		TypedQuery<Pedido> query = manager.createQuery("select p From Pedido p where p.empresa.razaoSocial = :razaoSocial", Pedido.class);
+		query.setParameter("razaoSocial", razaoSocial);
+		return query.getResultList();
+	}
+	
+	public List<Pedido> listarPorRazaoSocial(String razaoSocial, Status status)
+	{
+		TypedQuery<Pedido> query = manager.createQuery("select p From Pedido p where p.empresa.razaoSocial = :razaoSocial and p.status.idStatus = :id", Pedido.class);
+		query.setParameter("razaoSocial", razaoSocial);
+		query.setParameter(":id", status.getIdStatus());
+		return query.getResultList();
+	}
+	
+	public List<Pedido> listarPorStatus(Status status)
+	{
+		TypedQuery<Pedido> query = manager.createQuery("select p From Pedido p where p.status.idStatus = :id", Pedido.class);
+		query.setParameter("id", status.getIdStatus());
+		return query.getResultList();
+	}
+	
 	@Transactional
 	public Pedido alterarStatus(Long idPedido, Status status)
 	{
