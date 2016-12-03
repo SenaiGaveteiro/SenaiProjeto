@@ -1,9 +1,11 @@
 package br.gaveteiro.senai.dao;
 
 import java.util.Calendar;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,6 +32,13 @@ public class MudancaStatusDao {
 		mudancaStatus.setUsuario(usuario);
 		mudancaStatus.setDataAlteracao(dataAlteracao);
 		manager.persist(mudancaStatus);
+	}
+	
+	public List<MudancaStatus> listar(Long idPedido)
+	{
+		TypedQuery<MudancaStatus> query = manager.createQuery("select m from MudancaStatus m where m.pedido.idPedido = :id", MudancaStatus.class);
+		query.setParameter("id", idPedido);
+		return query.getResultList();
 	}
 	
 }

@@ -29,6 +29,17 @@ public class JwtInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
+	    /*response.setHeader("Access-Control-Allow-Origin", "*");
+	    response.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept, Authorization");
+	    response.setHeader("Access-Control-Allow-Methods", "OPTIONS, GET, POST, PUT, DELETE");
+	    response.setHeader("Access-Control-Max-Age", "3600");
+	    
+	    if(request.getMethod().equals("OPTIONS"))
+	    {
+		    response.setHeader("Allow", "OPTIONS, GET, POST, PUT, DELETE");
+		    return true;
+	    }
+	    */
 		System.out.println(handler.getClass().getSimpleName());
 		// TODO Auto-generated method stub
 		HandlerMethod method;

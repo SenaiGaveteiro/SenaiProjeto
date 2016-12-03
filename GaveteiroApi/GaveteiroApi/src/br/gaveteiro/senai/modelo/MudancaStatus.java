@@ -28,7 +28,7 @@ public class MudancaStatus {
 	@ManyToOne
 	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "data_alteracao")
 	private Calendar dataAlteracao;
 	public Pedido getPedido() {

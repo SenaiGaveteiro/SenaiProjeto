@@ -3,11 +3,7 @@
 	<section name="org.eclipse.ui.dialogs.FilteredResourcesSelectionDialog">
 		<item value="false" key="FilterByLocation"/>
 		<item value="true" key="ShowStatusLine"/>
-<<<<<<< HEAD
-		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History&gt;&#x0D;&#x0A;&lt;historyRootNode&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/GaveteiroApi/src/br/gaveteiro/senai/modelo/Pedido.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/GaveteiroApi/src/br/gaveteiro/senai/dao/PedidoDao.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;/historyRootNode&gt;&#x0D;&#x0A;&lt;/History&gt;" key="History"/>
-=======
-		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History&gt;&#x0D;&#x0A;&lt;historyRootNode&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/GaveteiroApi/src/br/gaveteiro/senai/modelo/Usuario.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/GaveteiroApi/src/br/gaveteiro/senai/modelo/Pedido.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/GaveteiroApi/src/br/gaveteiro/senai/controller/UsuarioRestController.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/GaveteiroApi/src/br/gaveteiro/senai/controller/PedidoRestController.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/GaveteiroApi/src/br/gaveteiro/senai/controller/ProdutoRestController.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/GaveteiroApi/src/br/gaveteiro/senai/dao/PedidoDao.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/GaveteiroApi/src/br/gaveteiro/senai/controller/EmpresaRestController.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;/historyRootNode&gt;&#x0D;&#x0A;&lt;/History&gt;" key="History"/>
->>>>>>> d3e32566f273001e0ad26badab1023783104f874
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History&gt;&#x0D;&#x0A;&lt;historyRootNode&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/GaveteiroApi/src/br/gaveteiro/senai/dao/PedidoDao.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/GaveteiroApi/src/br/gaveteiro/senai/controller/ProdutoRestController.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/GaveteiroApi/src/br/gaveteiro/senai/controller/PedidoRestController.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/GaveteiroApi/src/br/gaveteiro/senai/controller/UsuarioRestController.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/GaveteiroApi/src/br/gaveteiro/senai/dao/StatusDao.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/GaveteiroApi/src/br/gaveteiro/senai/controller/StatusRestController.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/GaveteiroApi/src/br/gaveteiro/senai/modelo/Status.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/GaveteiroApi/src/br/gaveteiro/senai/modelo/Pedido.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/GaveteiroApi/src/br/gaveteiro/senai/modelo/MudancaStatus.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;/historyRootNode&gt;&#x0D;&#x0A;&lt;/History&gt;" key="History"/>
 		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;workingSet workingSetName=&quot;&quot;/&gt;" key="WorkingSet"/>
 		<item value="false" key="ShowDerived"/>
 		<section name="DialogBoundsSettings">
@@ -15,11 +11,7 @@
 			<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 			<item value="500" key="DIALOG_HEIGHT"/>
 			<item value="391" key="DIALOG_X_ORIGIN"/>
-<<<<<<< HEAD
-			<item value="59" key="DIALOG_Y_ORIGIN"/>
-=======
 			<item value="39" key="DIALOG_Y_ORIGIN"/>
->>>>>>> d3e32566f273001e0ad26badab1023783104f874
 		</section>
 	</section>
 </section>

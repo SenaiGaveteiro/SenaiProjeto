@@ -26,7 +26,7 @@ public class Pedido {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_pedido")
 	private Long idPedido;
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "data_pedido")
 	private Calendar dataPedido;
 	private String endereco;
@@ -36,7 +36,7 @@ public class Pedido {
 	private Float total;
 	private Float frete;
 	@Column(name = "ultima_atualizacao")
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar ultimaAtualizacao;
 	@OneToOne
 	@JoinColumn(name = "id_empresa")

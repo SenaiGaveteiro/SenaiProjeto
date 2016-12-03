@@ -3,4 +3,5 @@
 <fullyQualifiedTypeName name="org.springframework.web.method.HandlerMethod"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.handler.AbstractHandlerMethodMapping"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.handler.AbstractHandlerMapping"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
 </qualifiedTypeNameHistroy>
