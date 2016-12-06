@@ -16,14 +16,17 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "pedido")
+@JsonIgnoreProperties(value = "empresa")
 public class Pedido {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_pedido")
 	private Long idPedido;
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	@Column(name = "data_pedido")
 	private Calendar dataPedido;
 	private String endereco;
@@ -33,7 +36,7 @@ public class Pedido {
 	private Float total;
 	private Float frete;
 	@Column(name = "ultima_atualizacao")
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	private Calendar ultimaAtualizacao;
 	@OneToOne
 	@JoinColumn(name = "id_empresa")

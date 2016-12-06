@@ -49,22 +49,8 @@ public class PedidoRestController {
 	}
 
 	@RequestMapping(value = "/pedido", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public List<Pedido> listar(@RequestParam(name="empresa", defaultValue = "") String empresa, @RequestParam(name="status", defaultValue = "") String status ) {
-		if(empresa.isEmpty() && status.isEmpty())
-			return pedidoDao.listar();
-		else if(!empresa.isEmpty() && status.isEmpty())
-			return pedidoDao.listarPorRazaoSocial(empresa);
-		else if(!status.isEmpty() && empresa.isEmpty())
-		{
-			Long idStatus = Long.parseLong(status);
-			Status s = statusDao.listar(idStatus);
-			return pedidoDao.listarPorStatus(s);
-		}
-		else {
-			Long idStatus = Long.parseLong(status);
-			Status s = statusDao.listar(idStatus);
-			return pedidoDao.listarPorRazaoSocial(empresa, s);
-		}
+	public List<Pedido> listar() {
+		return pedidoDao.listar();
 	}
 
 	@RequestMapping(value = "empresa/{idEmpresa}/pedido", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

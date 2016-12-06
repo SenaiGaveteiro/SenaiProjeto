@@ -39,7 +39,6 @@ INDEX VERSION 1.127+C:\Users\Edinho\Desktop\API - SENAI\GaveteiroApi\.metadata\.
 630857861.index
 1268760530.index
 812558941.index
-4034354950.index
 1225809654.index
 2968140277.index
 2324149168.index
