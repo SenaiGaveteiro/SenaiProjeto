@@ -35,14 +35,6 @@ public class PedidoDao {
 		return query.getResultList();
 	}
 	
-	public List<Pedido> listarPorEmpresa(Long idEmpresa, Status status)
-	{
-		TypedQuery<Pedido> query = manager.createQuery("select p From Pedido p where p.empresa.idEmpresa = :idEmpresa and p.status.idStatus = :idStatus", Pedido.class);
-		query.setParameter("idEmpresa", idEmpresa);
-		query.setParameter("idStatus", status.getIdStatus());
-		return query.getResultList();
-	}
-	
 	public List<Pedido> listarPorRazaoSocial(String razaoSocial)
 	{
 		TypedQuery<Pedido> query = manager.createQuery("select p From Pedido p where p.empresa.razaoSocial = :razaoSocial", Pedido.class);

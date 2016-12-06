@@ -70,7 +70,7 @@ public class PedidoRestController {
 	@RequestMapping(value = "empresa/{idEmpresa}/pedido", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<List<Pedido>> listarPorEmpresa(@PathVariable Long idEmpresa, @RequestParam(name="ultimo", defaultValue = "false") String ultimo, @RequestParam(name="status", defaultValue = "") String status) {
 		System.out.println(ultimo);
-		if(ultimo.equals("false") && status.isEmpty())
+		if(ultimo.equals("false"))
 			return ResponseEntity.ok(pedidoDao.listarPorEmpresa(idEmpresa));
 		else if(!status.isEmpty()) {
 			Long idStatus = Long.parseLong(status);

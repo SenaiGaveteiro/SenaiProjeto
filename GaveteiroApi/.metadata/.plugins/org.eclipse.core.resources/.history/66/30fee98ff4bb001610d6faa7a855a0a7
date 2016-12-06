@@ -68,15 +68,11 @@ public class PedidoRestController {
 	}
 
 	@RequestMapping(value = "empresa/{idEmpresa}/pedido", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<List<Pedido>> listarPorEmpresa(@PathVariable Long idEmpresa, @RequestParam(name="ultimo", defaultValue = "false") String ultimo, @RequestParam(name="status", defaultValue = "") String status) {
+	public ResponseEntity<List<Pedido>> listarPorEmpresa(@PathVariable Long idEmpresa, @RequestParam(name="ultimo", defaultValue = "false") String ultimo) {
 		System.out.println(ultimo);
-		if(ultimo.equals("false") && status.isEmpty())
+		if(ultimo.equals("false"))
 			return ResponseEntity.ok(pedidoDao.listarPorEmpresa(idEmpresa));
-		else if(!status.isEmpty()) {
-			Long idStatus = Long.parseLong(status);
-			Status s = statusDao.listar(idStatus);
-			return ResponseEntity.ok(pedidoDao.listarPorEmpresa(idEmpresa,s));
-		} else {
+		else {
 			System.out.println("passei aqui");
 			if(pedidoDao.listarUltimo(idEmpresa) != null)
 				return ResponseEntity.ok(pedidoDao.listarUltimo(idEmpresa));
