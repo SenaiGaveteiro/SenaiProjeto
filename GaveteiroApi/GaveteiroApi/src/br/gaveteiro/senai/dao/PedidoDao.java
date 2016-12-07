@@ -52,16 +52,16 @@ public class PedidoDao {
 	
 	public List<Pedido> listarPorRazaoSocial(String razaoSocial, Status status)
 	{
-		TypedQuery<Pedido> query = manager.createQuery("select p From Pedido p where p.empresa.razaoSocial = :razaoSocial and p.status.idStatus = :id", Pedido.class);
+		TypedQuery<Pedido> query = manager.createQuery("select p From Pedido p where p.empresa.razaoSocial = :razaoSocial and p.status.idStatus = :idStatus", Pedido.class);
 		query.setParameter("razaoSocial", razaoSocial);
-		query.setParameter(":id", status.getIdStatus());
+		query.setParameter("idStatus", status.getIdStatus());
 		return query.getResultList();
 	}
 	
 	public List<Pedido> listarPorStatus(Status status)
 	{
-		TypedQuery<Pedido> query = manager.createQuery("select p From Pedido p where p.status.idStatus = :id", Pedido.class);
-		query.setParameter("id", status.getIdStatus());
+		TypedQuery<Pedido> query = manager.createQuery("select p From Pedido p where p.status.idStatus = :idStatus", Pedido.class);
+		query.setParameter("idStatus", status.getIdStatus());
 		return query.getResultList();
 	}
 	
