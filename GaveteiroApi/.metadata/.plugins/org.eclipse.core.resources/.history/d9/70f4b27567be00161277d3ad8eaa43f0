@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.gaveteiro.senai.dao.MudancaStatusDao;
 import br.gaveteiro.senai.modelo.MudancaStatus;
-import br.gaveteiro.senai.modelo.Usuario;
 
 @RestController
 public class MudancaStatusRestController {
@@ -23,16 +22,6 @@ public class MudancaStatusRestController {
 	public List<MudancaStatus> listar(@PathVariable Long idPedido)
 	{
 		return mudancaStatusDao.listar(idPedido);
-	}
-	
-	@RequestMapping(value="pedido/{idPedido}/status/usuario", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Usuario getUltimoUsuario(@PathVariable Long idPedido)
-	{
-		try{
-		return mudancaStatusDao.listarUltimo(idPedido);
-	} catch(Exception e) {
-		return new Usuario();
-	}
 	}
 	
 }

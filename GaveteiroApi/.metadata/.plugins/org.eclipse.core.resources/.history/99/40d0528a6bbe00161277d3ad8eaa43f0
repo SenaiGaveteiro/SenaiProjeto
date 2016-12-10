@@ -28,11 +28,7 @@ public class MudancaStatusRestController {
 	@RequestMapping(value="pedido/{idPedido}/status/usuario", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Usuario getUltimoUsuario(@PathVariable Long idPedido)
 	{
-		try{
 		return mudancaStatusDao.listarUltimo(idPedido);
-	} catch(Exception e) {
-		return new Usuario();
-	}
 	}
 	
 }

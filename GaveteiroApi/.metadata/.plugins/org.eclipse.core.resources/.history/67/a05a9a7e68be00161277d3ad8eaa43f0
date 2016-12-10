@@ -43,9 +43,8 @@ public class MudancaStatusDao {
 	
 	public Usuario listarUltimo(Long idPedido)
 	{
-		TypedQuery<Usuario> query = manager.createQuery("select m.usuario from MudancaStatus m where m.pedido.idPedido = :id order by m.pedido.idPedido desc", Usuario.class);
+		TypedQuery<Usuario> query = manager.createQuery("select m.usuario from MudancaStatus m where m.pedido.idPedido = :id order by p.idPedido desc", Usuario.class);
 		query.setParameter("id", idPedido);
-		query.setMaxResults(1);
 		return query.getSingleResult();
 	}
 	

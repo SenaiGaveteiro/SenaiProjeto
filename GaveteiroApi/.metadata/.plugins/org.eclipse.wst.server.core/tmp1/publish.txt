@@ -1,4 +1,4 @@
 #Tomcat publish data
-#Tue Dec 06 23:51:22 BRST 2016
+#Fri Dec 09 21:59:38 BRST 2016
 org.eclipse.jst.jee.server\:GaveteiroApi=C\:\\Users\\Edinho\\Desktop\\PROJETOS E WORKSPACES\\apache-tomcat-8.0.37\\wtpwebapps\\GaveteiroApi
 org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\Edinho\\Desktop\\API\ -\ SENAI\\GaveteiroApi\\GaveteiroApi\\WebContent\\WEB-INF\\lib\\spring-web-4.3.2.RELEASE.jar=C\:\\Users\\Edinho\\Desktop\\PROJETOS E WORKSPACES\\apache-tomcat-8.0.37\\wtpwebapps\\GaveteiroApi\\WEB-INF\\lib\\spring-web-4.3.2.RELEASE.jar
